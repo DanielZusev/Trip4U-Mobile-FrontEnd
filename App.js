@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import Header from './components/Header';
+import LogInScreen from './screens/LogInScreen';
+import SignInScreen from './screens/SignInScreen';
 
 export default function App() {
+
+  const [signInPage, setSignInPage] = useState(false);
+
+  const registrationHandler = (isPressedSignIn) => {
+    setSignInPage(isPressedSignIn);
+  };
+
+  let content = <LogInScreen signIn={registrationHandler} />;
+
+  if (signInPage) {
+    content = <SignInScreen />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Header title="Trip4U" />
+      {content}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 });
