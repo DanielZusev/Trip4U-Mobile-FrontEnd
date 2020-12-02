@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input'
-import LinkedText from '../components/LinkedText';
 import Colors from '../constantValues/Colors';
+import {serverIp} from '../constantValues/Addresses';
 import axios from 'axios';
 
 const LogInScreen = props => {
 
     const [enteredEmail, setEnteredEmail] = useState('');
     const [enteredPassword, setEnteredPassword] = useState('');
-
 
     const emailInputHandler = (inputEmail) => {
         setEnteredEmail(inputEmail);
@@ -25,23 +24,22 @@ const LogInScreen = props => {
     };
 
 
-
     const loginHandler = () => {
-        if (enteredEmail.trim === '' || enteredPassword.trim === '') {
+        if (enteredEmail === '' || enteredPassword === '') {
             Alert.alert(
                 'Invaild Input',
-                'One of the fields is empty, please fill them up',
-                [{ text: 'OK', style: 'destructive', onPress: resetValues }])
+                'One of the fields is empty\nplease fill them up',
+                [{ text: 'OK', style: 'destructive', onPress: resetValues }]);
         } else {
-            console.log(enteredEmail + '   ' + enteredPassword);
             axios
-                .get('http://localhost:2222/users/login/' + enteredEmail + '/' + enteredPassword)
+                .get(serverIp + 'users/login/' + enteredEmail + '/' + enteredPassword)
                 .then((res) => {
                     if (res.status === 200) {
                         console.log(res.data);
                     }
-                }).catch((error) => {
-                    console.log(error)
+                })
+                .catch((error) => {
+                    console.log(error);
                 });
         }
     };

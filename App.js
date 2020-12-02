@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Header from './components/Header';
 import LogInScreen from './screens/LogInScreen';
-import SignInScreen from './screens/SignInScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 export default function App() {
 
@@ -16,7 +16,7 @@ export default function App() {
   let content = <LogInScreen signIn={registrationHandler} />;
 
   if (signInPage) {
-    content = <SignInScreen />
+    content = <SignUpScreen />
   }
 
   return (
