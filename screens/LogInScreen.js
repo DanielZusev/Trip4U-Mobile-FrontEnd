@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input'
 import LinkedText from '../components/LinkedText';
@@ -10,19 +10,42 @@ const LogInScreen = props => {
 
     const [enteredEmail, setEnteredEmail] = useState('');
     const [enteredPassword, setEnteredPassword] = useState('');
-    const [signInScreen, setSignInScreen] = useState(false);
+
 
     const emailInputHandler = (inputEmail) => {
-        setEnteredEmail('');
         setEnteredEmail(inputEmail);
     };
     const passwordInputHandler = (inputPassword) => {
         setEnteredPassword(inputPassword);
     };
 
-    const signInScreenHandler = () => {
-        setSignInScreen(true);
+    const resetValues = () => {
+        setEnteredEmail('');
+        setEnteredPassword('');
     };
+
+
+
+    const loginHandler = () => {
+        if (enteredEmail.trim === '' || enteredPassword.trim === '') {
+            Alert.alert(
+                'Invaild Input',
+                'One of the fields is empty, please fill them up',
+                [{ text: 'OK', style: 'destructive', onPress: resetValues }])
+        } else {
+            console.log(enteredEmail + '   ' + enteredPassword);
+            axios
+                .get('http://localhost:2222/users/login/' + enteredEmail + '/' + enteredPassword)
+                .then((res) => {
+                    if (res.status === 200) {
+                        console.log(res.data);
+                    }
+                }).catch((error) => {
+                    console.log(error)
+                });
+        }
+    };
+
 
     return (
         <View style={styles.screen}>
@@ -48,7 +71,7 @@ const LogInScreen = props => {
                     secureTextEntry={true}
                     onChangeText={passwordInputHandler} />
 
-                <View style={styles.button}><Button title="Log In" color={Colors.logo}></Button></View>
+                <View style={styles.button}><Button title="Log In" color={Colors.logo} onPress={loginHandler}></Button></View>
                 <Text style={styles.signIn} onPress={() => props.signIn(true)}>Not Signed In? Press Me</Text>
             </Card>
         </View>
