@@ -16,7 +16,7 @@ export default function App() {
   let content = <LogInScreen signIn={registrationHandler} />;
 
   if (signInPage) {
-    content = <SignUpScreen />
+    content = <SignUpScreen onBack={registrationHandler}/>
   }
 
   return (

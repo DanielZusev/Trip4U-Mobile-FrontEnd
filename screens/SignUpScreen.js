@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import { View, Text, StyleSheet, Button, Alert} from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input'
 import Colors from '../constantValues/Colors';
 import { serverIp } from '../constantValues/Addresses';
+import CustomButton from '../components/CustomButton';
 import axios from 'axios';
 
 const SignUpScreen = props => {
@@ -101,7 +102,9 @@ const SignUpScreen = props => {
                     keyboardType="default"
                     placeholderTextColor='grey'
                     value={enteredFirstName}
-                    onChangeText={firstNameInputHandler} />
+                    onChangeText={firstNameInputHandler} 
+                    iconName='face'
+                    iconColor='grey'/>
                 <Input
                     style={styles.inputContainer}
                     autoCorrect={false}
@@ -109,7 +112,9 @@ const SignUpScreen = props => {
                     keyboardType="default"
                     placeholderTextColor='grey'
                     value={enteredLastName}
-                    onChangeText={lastNameInputHandler} />
+                    onChangeText={lastNameInputHandler}
+                    iconName='face'
+                    iconColor='grey' />
                 <Input
                     style={styles.inputContainer}
                     autoCorrect={false}
@@ -117,7 +122,9 @@ const SignUpScreen = props => {
                     keyboardType="email-address"
                     placeholderTextColor='grey'
                     value={enteredEmail}
-                    onChangeText={emailInputHandler} />
+                    onChangeText={emailInputHandler}
+                    iconName='email'
+                    iconColor='grey' />
                 <Input
                     style={styles.inputContainer}
                     autoCorrect={false}
@@ -127,7 +134,9 @@ const SignUpScreen = props => {
                     secureTextEntry={true}
                     maxLength={12}
                     value={enteredPassword}
-                    onChangeText={passwordInputHandler} />
+                    onChangeText={passwordInputHandler}
+                    iconName='lock'
+                    iconColor='grey' />
                 <Input
                     style={styles.inputContainer}
                     autoCorrect={false}
@@ -137,10 +146,12 @@ const SignUpScreen = props => {
                     secureTextEntry={true}
                     maxLength={12}
                     value={enteredReEnteredPassword}
-                    onChangeText={reEnterPasswordInputHandler} />
+                    onChangeText={reEnterPasswordInputHandler}
+                    iconName='lock'
+                    iconColor='grey' />
 
-                <View style={styles.button}><Button title="Sign Up" color={Colors.logo} onPress={signUpHandler}></Button></View>
             </Card>
+            <View style={styles.button}><CustomButton title="Sign Up" onPress={signUpHandler}></CustomButton></View>
         </View>
     );
 };
@@ -153,7 +164,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '80%',
-        height: 470,
+        height: 430,
         alignItems: 'center'
     },
     inputContainer: {
@@ -162,8 +173,7 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 15,
-        width: '80%',
-        backgroundColor: Colors.logo,
+        width: '70%',
     }
 });
 

@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
         shadowColor: 'black', //Shadow Only On IOS
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 6,
-        shadowOpacity: 0.26,
+        shadowOpacity: 0.35,
         backgroundColor: 'white',
         elevation: 25, // Only on Android
         padding: 20,
-        borderRadius: 15,
+        borderRadius: 25,
     }
 });
 

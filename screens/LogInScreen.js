@@ -3,8 +3,9 @@ import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input'
 import Colors from '../constantValues/Colors';
-import {serverIp} from '../constantValues/Addresses';
+import { serverIp } from '../constantValues/Addresses';
 import axios from 'axios';
+import CustomButton from '../components/CustomButton';
 
 const LogInScreen = props => {
 
@@ -56,7 +57,9 @@ const LogInScreen = props => {
                     keyboardType="email-address"
                     value={enteredEmail}
                     placeholderTextColor='grey'
-                    onChangeText={emailInputHandler} />
+                    onChangeText={emailInputHandler} 
+                    iconName='email'
+                    iconColor='grey'/>
 
                 <Input
                     style={styles.inputContainer}
@@ -67,11 +70,14 @@ const LogInScreen = props => {
                     value={enteredPassword}
                     placeholderTextColor='grey'
                     secureTextEntry={true}
-                    onChangeText={passwordInputHandler} />
+                    onChangeText={passwordInputHandler} 
+                    iconName='lock'
+                    iconColor='grey'/>
 
-                <View style={styles.button}><Button title="Log In" color={Colors.logo} onPress={loginHandler}></Button></View>
-                <Text style={styles.signIn} onPress={() => props.signIn(true)}>Not Signed In? Press Me</Text>
+
             </Card>
+            <View style={styles.button}><CustomButton onPress={loginHandler} title="Log In"></CustomButton></View>
+            <Text style={styles.signIn} onPress={() => props.signIn(true)}>Not Signed In? Press Me</Text>
         </View>
     );
 };
@@ -88,19 +94,20 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '80%',
-        height: 350,
+        height: 230,
         alignItems: 'center'
     },
     button: {
         marginTop: 50,
-        width: '80%',
+        width: '70%',
     },
     signIn: {
-        marginTop: 10,
+        marginTop: 50,
         color: Colors.link,
         fontSize: 10,
         opacity: 40,
-    }
+    },
+
 });
 
 export default LogInScreen;
