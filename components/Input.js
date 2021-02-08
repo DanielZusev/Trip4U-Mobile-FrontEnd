@@ -1,7 +1,6 @@
 import React from 'react';
 import { TextInput, StyleSheet, View } from 'react-native'
 import { Icon } from 'react-native-elements';
-import { EMAIL } from '../constantValues/Images';
 
 const Input = props => {
     return (

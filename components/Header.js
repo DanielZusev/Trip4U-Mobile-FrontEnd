@@ -13,17 +13,19 @@ const Header = props => {
 
 const styles = StyleSheet.create({
     header: {
+        flex: 1,
+        flexDirection: "column",
         width: '100%',
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-        height: 230,
-
+        justifyContent: "center",
+        padding: 1
     },
     logoImage: {
         width: '100%',
         height: 130,
         borderRadius: 35,
+        alignItems: "center",
+        marginTop: 100
     },
 });
 

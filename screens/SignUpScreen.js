@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, Alert} from 'react-native';
+import { View, Text, StyleSheet, Alert, KeyboardAvoidingView} from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input'
-import Colors from '../constantValues/Colors';
-import { serverIp } from '../constantValues/Addresses';
+import { createNewUser, serverIp } from '../constantValues/Addresses';
 import CustomButton from '../components/CustomButton';
 import axios from 'axios';
+import Header from '../components/Header';
 
 const SignUpScreen = props => {
 
@@ -65,7 +65,7 @@ const SignUpScreen = props => {
                 'Passwords Not Match',
                 [{ text: 'OK', style: 'destructive', onPress: resetPasswords }]);
         } else {
-            const newUser = {
+            const newUserElement = {
                 "email": enteredEmail,
                 "password": enteredPassword,
                 "role": "TOURIST",
@@ -76,7 +76,7 @@ const SignUpScreen = props => {
             };
 
             axios
-                .post(serverIp + 'users/', newUser)
+                .post(serverIp + createNewUser, newUserElement)
                 .then((res) => {
                     if (res.status === 200) {
                         Alert.alert(
@@ -92,9 +92,10 @@ const SignUpScreen = props => {
     };
 
     return (
-        <View style={styles.screen}>
+        <KeyboardAvoidingView style={styles.screen}>
+             <Header title="Trip4U" ></Header>
             <Card style={styles.card}>
-                <Text>Sign Up</Text>
+                <Text style={styles.textHeader}>Sign Up</Text>
                 <Input
                     style={styles.inputContainer}
                     autoCorrect={false}
@@ -152,20 +153,26 @@ const SignUpScreen = props => {
 
             </Card>
             <View style={styles.button}><CustomButton title="Sign Up" onPress={signUpHandler}></CustomButton></View>
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        padding: 1,
+        padding: 25,
         alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white'
     },
     card: {
-        width: '80%',
-        height: 430,
-        alignItems: 'center'
+        width: '90%',
+        height: 480,
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        marginTop: 100,
+        marginBottom: 20
+
     },
     inputContainer: {
         alignItems: 'center',
@@ -174,6 +181,11 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 15,
         width: '70%',
+        marginBottom: 15
+    },
+    textHeader: {
+        fontSize: 20,
+        fontStyle: "italic",
     }
 });
 
