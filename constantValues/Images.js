@@ -2,3 +2,4 @@
 
 export const LOGO = require('../images/logo.png');
 export const EMAIL = require('../images/email.png');
+export const GRASS_HORIZON = require('../images/grass_horizon.png');

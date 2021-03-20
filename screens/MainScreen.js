@@ -5,15 +5,20 @@ import Card from '../components/Card';
 import CustomButton from '../components/CustomButton';
 
 const MainScreen = props => {
+
+    const { email, pass, name } = props.route.params;
+
     return (
         <View style={styles.screen}>
             <Header title="Trip4U" ></Header>
             <Card style={styles.card}>
-                <Text style={styles.baseText}>Welcome Back User !</Text>
+                <Text style={styles.baseText}>Welcome Back {name}!</Text>
                 <Text>Press The <Text style={styles.innerText}> Start </Text> Button To Begin</Text>
                 <Text>Planning Your Trip</Text>
             </Card>
-            <View style={styles.button}><CustomButton onPress={() => {}} title="Start"></CustomButton></View>
+            <View style={styles.button}>
+                <CustomButton onPress={() => { props.navigation.navigate('Date N Des'), { email: email, pass: pass } }} title="Start"></CustomButton>
+            </View>
         </View>
     );
 };
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     },
     baseText: {
         fontSize: 25,
-        paddingBottom: 25
+        paddingBottom: 25,
     },
     card: {
         width: '100%',
@@ -40,7 +45,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 100,
-       
+
     },
     button: {
         marginTop: 50,

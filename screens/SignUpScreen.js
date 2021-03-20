@@ -82,7 +82,10 @@ const SignUpScreen = props => {
                         Alert.alert(
                             'Sign Up',
                             'Sign Up completed succesfully',
-                            [{ text: 'OK', style: 'destructive', onPress: resetValues }]);
+                            [{ text: 'OK',
+                             style: 'destructive',
+                              onPress: props.navigation.replace('MainScreen',{email: enteredEmail, pass: enteredPassword}) 
+                            }]);
                     }
                 })
                 .catch((error) => {

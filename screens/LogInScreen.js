@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Alert, KeyboardAvoidingView} from 'react-native';
 import Card from '../components/Card';
-import Input from '../components/Input'
+import Input from '../components/Input';
 import Colors from '../constantValues/Colors';
 import { login, serverIp } from '../constantValues/Addresses';
 import axios from 'axios';
@@ -38,8 +38,8 @@ const LogInScreen = props => {
                 .get(serverIp + login + enteredEmail + '/' + enteredPassword)
                 .then((res) => {
                     if (res.status === 200) {
-                        console.log(res.data);
-                        props.navigation.replace('MainScreen');
+                        //console.log(res.data);
+                        props.navigation.replace('MainScreen',{email: enteredEmail, pass: enteredPassword, name: res.data.username.firstName});
                     }
                 })
                 .catch((error) => {
