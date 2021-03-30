@@ -4,10 +4,11 @@ import { SearchBar } from 'react-native-elements';
 import Card from '../components/Card';
 import Colors from '../constantValues/Colors';
 import CustomButton from '../components/CustomButton';
-
+import CustomDatePicker from '../components/CustomDatePicker';
 import { GOOGLE_PLACES_API_KEY } from '../constantValues/Credentials';
 import axios from 'axios';
 import { DND } from '../constantValues/Images'
+
 
 
 const DateNDestionationScreen = props => {
@@ -15,13 +16,9 @@ const DateNDestionationScreen = props => {
     const { email, pass } = props.route.params;
 
     // DATE Picking Related Consts
-    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-    const [startDateText, setStartDateText] = useState('Start Date');
-    const [endDateText, setEndDateText] = useState('End Date');
-    const [isStartOrEndDate, setStartOrEndDate] = useState(0);
-    const [chooseDateButtonText, setChooseDateButtonText] = useState('Choose Start Date');
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [isDatesOk, setDatesOk] = useState(false);
 
     // SEARCH BAR Realted Consts
     const [searchKeyword, setSearchKeyword] = useState('');
@@ -60,55 +57,6 @@ const DateNDestionationScreen = props => {
         setIsShowingResults(isShown);
     }
 
-    const chooseDateBtnHandler = (isStart) => { // change the text of the choose date button
-        if (isStart)
-            setChooseDateButtonText('Choose End Date');
-        else
-            setChooseDateButtonText('Choose Start Date');
-    }
-
-    const startOrEndDateHandler = (isStart) => { //boolean indicator for which date to pick now
-        if (isStart)
-            setStartOrEndDate(1);
-        else
-            setStartOrEndDate(0);
-    }
-
-    const startDateHandler = (date) => { // set start date text view
-        setStartDate(new Date(date));
-        setStartDateText(`Start: ${new Date(date).toDateString()}`);
-    }
-    const endDateHandler = (date) => { // set end date text view
-        if (date != '') {
-            setEndDate(new Date(date));
-            setEndDateText(`End: ${new Date(date).toDateString()}`);
-        }
-        else
-            setEndDateText('End Date');
-    }
-
-    const showDatePicker = () => {
-        setDatePickerVisibility(true);
-    };
-
-    const hideDatePicker = () => {
-        setDatePickerVisibility(false);
-    };
-
-    const handleConfirm = (date) => {
-        if (isStartOrEndDate === 0) { // 0 = start, 1 = end
-            startOrEndDateHandler(true);
-            chooseDateBtnHandler(true);
-            startDateHandler(date);
-            endDateHandler('');
-        }
-        else {
-            startOrEndDateHandler(false);
-            chooseDateBtnHandler(false);
-            endDateHandler(date);
-        }
-        hideDatePicker();
-    };
 
     const resetDestinationInputValues = () => {
         searchKeywordHandler('');
@@ -117,7 +65,7 @@ const DateNDestionationScreen = props => {
     };
 
     const nextButtonHandler = () => {
-        if (searchKeyword != '' && searchKeyword1 != '' && startDate != null && endDate != null)
+        if (searchKeyword != '' && searchKeyword1 != '' && startDate != '' && endDate != '' && isDatesOk)
             props.navigation.navigate('Categories', { startPoint: startPoint, endPoint: endPoint, startDate: startDate, endDate: endDate })
         else
             Alert.alert(
@@ -133,7 +81,6 @@ const DateNDestionationScreen = props => {
                 url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${text}&key=${GOOGLE_PLACES_API_KEY}`,
             })
             .then((response) => {
-                console.log(response)
                 searchResultsHandler(response.data.predictions);
                 isShowingResultsHandler(true)
             })
@@ -147,6 +94,49 @@ const DateNDestionationScreen = props => {
             setStartPoint(id)
         else
             setEndPoint(id);
+    }
+
+    const handelDate = (isStartDate, value) => {
+        if (isStartDate) {
+            setStartDate(value);
+            setEndDate(value);
+        }
+        else
+            checkEndDate(value);
+    }
+
+    const checkEndDate = (value) => {
+        const newValue = value.split('/');
+        const splittedStartDate = startDate.split('/');
+    
+        if (parseInt(newValue[0]) == parseInt(splittedStartDate[0])) {
+          
+            if (parseInt(newValue[1]) >= parseInt(splittedStartDate[1])) {
+                setEndDate(value);
+                setDatesOk(true);
+            }
+            else {
+                Alert.alert(
+                    'Wrong Input',
+                    'End Date Cannot Be Befor Start Date',
+                    [{ text: 'OK', style: 'destructive' }]);
+                setDatesOk(false);
+            }
+        }
+        else {
+            if (parseInt(newValue[0]) > parseInt(splittedStartDate[0])) {
+                setEndDate(value);
+                setDatesOk(true);
+            }
+
+            else {
+                Alert.alert(
+                    'Wrong Input',
+                    'End Date Cannot Be Befor Start Date',
+                    [{ text: 'OK', style: 'destructive' }]);
+                setDatesOk(false);
+            }
+        }
     }
 
     return (
@@ -185,7 +175,7 @@ const DateNDestionationScreen = props => {
                                     renderItem={({ item, index }) => {
                                         return (
                                             <TouchableOpacity
-                                                id={item.place_id}
+                                                id={index}
                                                 style={styles.resultItem}
                                                 onPress={() => {
                                                     searchKeywordHandler('');
@@ -200,24 +190,28 @@ const DateNDestionationScreen = props => {
                                             </TouchableOpacity>
                                         );
                                     }}
-                                    keyExtractor={(item) => item.id}
+                                    keyExtractor={(item) => item.place_id}
                                     style={styles.searchResultsContainer}
                                 />
                             )}
                         </View>
+
                         {!isShowingResults &&
                             <Card style={styles.innerCard}>
                                 <View style={styles.datesInput}>
-                                    <Text >{startDateText}</Text>
-                                    <Text>{endDateText}</Text>
-                                    <View style={styles.dateButton}><CustomButton onPress={showDatePicker} title={chooseDateButtonText}></CustomButton></View>
-                                    {/* <DateTimePickerModal
-                                        isVisible={isDatePickerVisible}
-                                        mode="date"
-                                        onConfirm={handleConfirm}
-                                        onCancel={hideDatePicker}
-                                        minimumDate={startDate} /> */}
-                                    
+                                    <Text style={{ color: Colors.logo, fontWeight: 'bold', fontSize: 20, }}>Start Date</Text>
+                                    <CustomDatePicker
+                                        style={{ width: '90%' }}
+                                        onDateChange={(value) => { handelDate(true, value) }}
+                                        textStyle={{ color: 'black', fontWeight: 'bold', fontSize: 15, }}
+                                    />
+
+                                    <Text style={{ color: Colors.logo, fontWeight: 'bold', fontSize: 20, }}>End Date</Text>
+                                    <CustomDatePicker
+                                        style={{ width: '90%' }}
+                                        onDateChange={(value) => { handelDate(false, value) }}
+                                        textStyle={{ color: 'black', fontWeight: 'bold', fontSize: 15, }}
+                                    />
                                 </View>
                             </Card>}
                         <View style={styles.button}><CustomButton onPress={nextButtonHandler} title="Next"></CustomButton></View>
@@ -264,13 +258,13 @@ const styles = StyleSheet.create({
         elevation: 0
     },
     innerCard: {
-        width: '90%',
-        height: '50%',
+        width: '100%',
+        height: '60%',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 15,
         marginBottom: 40,
-        backgroundColor: 'rgba(1000,1000,1000,0.6)',
+        backgroundColor: 'rgba(0,0,0,0)',
+        elevation: 0,
 
     },
     button: {
@@ -288,10 +282,10 @@ const styles = StyleSheet.create({
     datesInput: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
         width: '100%',
         height: 100,
-        paddingVertical: 25
+        paddingVertical: 10
     },
     innerInputCard: {
         width: '100%',

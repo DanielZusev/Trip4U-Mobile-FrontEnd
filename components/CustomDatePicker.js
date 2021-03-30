@@ -6,7 +6,7 @@ import { Icon } from 'react-native-elements';
 import Colors from '../constantValues/Colors';
 
 const CustomDatePicker = props => {
-    const { textStyle, defaultDate } = props;
+    const { textStyle, iconStyle, defaultDate } = props;
 
     const [date, setDate] = useState(moment(defaultDate));
     const [show, setShow] = useState(false);
@@ -15,17 +15,18 @@ const CustomDatePicker = props => {
         setShow(false);
         if (selectedDate) {
             setDate(moment(selectedDate));
+            props.onDateChange(moment(selectedDate).format('MM/DD/YYYY'));
         }
     }
 
     const renderDatePicker = () => {
         return (
             <DateTimePicker
+                timeZoneOffsetInMinutes={0}
                 value={new Date(date)}
                 mode="date"
-                // minimumDate={new Date(moment().subtract(1,'years').format('DD-MM-YYYY'))}
-                // maximumDate={new Date(moment().format('DD-MM-YYYY'))}
                 onChange={onChangeDate}
+                minimumDate={new Date()}
             />
         )
     }
@@ -39,8 +40,8 @@ const CustomDatePicker = props => {
             onPress={() => setShow(true)}>
 
             <View style={styles.container}>
-                <Icon style={styles.icon} name="date-range" color='red' type='material'></Icon>
-                <Text style={textStyle}> {date.format('DD-MM-YYYY')} </Text>
+                <Icon style={iconStyle} name="date-range" color='red' type='material'></Icon>
+                <Text style={textStyle}> {date.format('MM/DD/YYYY')} </Text>
 
                 {show && renderDatePicker()}
             </View>
@@ -59,9 +60,6 @@ const styles = StyleSheet.create({
         width: '60%',
         borderRadius: 25,
     },
-    icon: {
-        marginHorizontal: 15
-    },
     container: {
         alignItems: 'center',
         flexDirection: 'row-reverse',
@@ -73,6 +71,8 @@ const styles = StyleSheet.create({
 CustomDatePicker.defaultProps = {
     textStyle: {},
     defaultDate: moment(),
+    iconStyle: { marginHorizontal: 15 },
+    onDateChange: () => { }
 }
 
 export default CustomDatePicker;

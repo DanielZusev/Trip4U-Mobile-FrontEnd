@@ -9,9 +9,9 @@ import Colors from '../constantValues/Colors';
 
 const CategoriesScreen = props => {
     const { startPoint, endPoint, startDate, endDate } = props.route.params;
-    console.log(startPoint + "  " +  endPoint+ "  " + startDate+ "  " +endDate)
 
-    const dayLoadButtons = ['Calm', 'Medium', 'Intense'];
+    const dayLoadButtons = ['Calm', 'Moderate', 'Intense'];
+    const categories = ['Hiking', 'Extreme', 'Culture', 'Shopping', 'Museums', 'Food', 'Relaxing', 'Casino']
 
     const [dayLoadIndex, setDayLoadIndex] = useState(0);
     const [isChecked1, setIsChecked1] = useState(false);
@@ -32,34 +32,57 @@ const CategoriesScreen = props => {
     const categoriesHandler = (index) => {
         switch (index) {
             case 1: isChecked1 ? setIsChecked1(false) : setIsChecked1(true);
-                    isChecked1 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked1 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 2: isChecked2 ? setIsChecked2(false) : setIsChecked2(true);
-                    isChecked2 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked2 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 3: isChecked3 ? setIsChecked3(false) : setIsChecked3(true);
-                    isChecked3 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked3 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 4: isChecked4 ? setIsChecked4(false) : setIsChecked4(true);
-                    isChecked4 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked4 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 5: isChecked5 ? setIsChecked5(false) : setIsChecked5(true);
-                    isChecked5 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked5 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 6: isChecked6 ? setIsChecked6(false) : setIsChecked6(true);
-                    isChecked6 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked6 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 7: isChecked7 ? setIsChecked7(false) : setIsChecked7(true);
-                    isChecked7 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked7 ? setChecked(checked - 1) : setChecked(checked + 1); break;
             case 8: isChecked8 ? setIsChecked8(false) : setIsChecked8(true);
-                    isChecked8 ? setChecked(checked - 1) : setChecked(checked + 1); break;
+                isChecked8 ? setChecked(checked - 1) : setChecked(checked + 1); break;
         }
     }
 
     const nextButtonHandler = () => {
-       
-        if (checked >= 2)
-            props.navigation.navigate('Build Trip')
+
+        if (checked >= 2) {
+            props.navigation.navigate('Build Trip',
+                {
+                    startPoint: startPoint,
+                    endPoint: endPoint,
+                    startDate: startDate,
+                    endDate: endDate,
+                    dayLoad: dayLoadButtons[dayLoadIndex].toUpperCase(),
+                    categories: handleCategoryArr()
+                })
+        }
         else
             Alert.alert(
                 'Invaild Input',
                 'Please check at least 2 categories',
                 [{ text: 'OK', style: 'destructive' }]);
     };
+
+    const handleCategoryArr = () => {
+        let selectedCategories = [];
+        isChecked1 ? selectedCategories.push(categories[0]) : null
+        isChecked2 ? selectedCategories.push(categories[1]) : null
+        isChecked3 ? selectedCategories.push(categories[2]) : null
+        isChecked4 ? selectedCategories.push(categories[3]) : null
+        isChecked5 ? selectedCategories.push(categories[4]) : null
+        isChecked6 ? selectedCategories.push(categories[5]) : null
+        isChecked7 ? selectedCategories.push(categories[6]) : null
+        isChecked8 ? selectedCategories.push(categories[7]) : null
+
+        return selectedCategories;
+    }
 
 
     return (
@@ -82,7 +105,7 @@ const CategoriesScreen = props => {
                     <View style={styles.categories}>
                         <View >
                             <CheckBox
-                                title='Hiking'
+                                title={categories[0]}
                                 checked={isChecked1}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -93,7 +116,7 @@ const CategoriesScreen = props => {
                                 textStyle={styles.checkBoxText}
                             />
                             <CheckBox
-                                title='Extreme'
+                                title={categories[1]}
                                 checked={isChecked2}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -104,7 +127,7 @@ const CategoriesScreen = props => {
                                 textStyle={styles.checkBoxText}
                             />
                             <CheckBox
-                                title='Culture'
+                                title={categories[2]}
                                 checked={isChecked3}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -115,7 +138,7 @@ const CategoriesScreen = props => {
                                 textStyle={styles.checkBoxText}
                             />
                             <CheckBox
-                                title='Shopping'
+                                title={categories[3]}
                                 checked={isChecked4}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -128,7 +151,7 @@ const CategoriesScreen = props => {
                         </View>
                         <View >
                             <CheckBox
-                                title='Museums'
+                                title={categories[4]}
                                 checked={isChecked5}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -139,7 +162,7 @@ const CategoriesScreen = props => {
                                 textStyle={styles.checkBoxText}
                             />
                             <CheckBox
-                                title='Food'
+                                title={categories[5]}
                                 checked={isChecked6}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -150,7 +173,7 @@ const CategoriesScreen = props => {
                                 textStyle={styles.checkBoxText}
                             />
                             <CheckBox
-                                title='Relaxing'
+                                title={categories[6]}
                                 checked={isChecked7}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
@@ -161,7 +184,7 @@ const CategoriesScreen = props => {
                                 textStyle={styles.checkBoxText}
                             />
                             <CheckBox
-                                title='Casino'
+                                title={categories[7]}
                                 checked={isChecked8}
                                 iconType='material-community'
                                 checkedIcon='checkbox-intermediate'
