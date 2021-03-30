@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import CustomDatePicker from '../components/CustomDatePicker';
 
 const BuildTripScreen = props => {
     return (
         <View style={styles.screen}>
-            <Text>My Trips</Text>
+           <CustomDatePicker></CustomDatePicker>
         </View>
     );
 };

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, Text, FlatList, TouchableOpacity, Alert } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView, Text, FlatList, TouchableOpacity, Alert, ImageBackground } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import Card from '../components/Card';
 import Colors from '../constantValues/Colors';
 import CustomButton from '../components/CustomButton';
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+
 import { GOOGLE_PLACES_API_KEY } from '../constantValues/Credentials';
 import axios from 'axios';
+import { DND } from '../constantValues/Images'
 
 
 const DateNDestionationScreen = props => {
@@ -24,17 +25,29 @@ const DateNDestionationScreen = props => {
 
     // SEARCH BAR Realted Consts
     const [searchKeyword, setSearchKeyword] = useState('');
+    const [searchKeyword1, setSearchKeyword1] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [isShowingResults, setIsShowingResults] = useState(false);
+    const [isFirstSearchBar, setFirstSearchBar] = useState(true); // true = first, false = second (searchBar)
+    const [startPoint, setStartPoint] = useState('');
+    const [endPoint, setEndPoint] = useState('');
 
     const searchKeywordHandler = (keyWord) => {
         if (keyWord === '') {
-            setSearchKeyword(keyWord);
+            if (isFirstSearchBar)
+                setSearchKeyword(keyWord);
+            else
+                setSearchKeyword1(keyWord);
+
             setSearchResults([]);
             setIsShowingResults(false);
         }
         else {
-            setSearchKeyword(keyWord);
+            if (isFirstSearchBar)
+                setSearchKeyword(keyWord);
+            else
+                setSearchKeyword1(keyWord);
+
             searchLocation(keyWord);
         }
     }
@@ -55,9 +68,8 @@ const DateNDestionationScreen = props => {
     }
 
     const startOrEndDateHandler = (isStart) => { //boolean indicator for which date to pick now
-        if (isStart) {
+        if (isStart)
             setStartOrEndDate(1);
-        }
         else
             setStartOrEndDate(0);
     }
@@ -102,23 +114,23 @@ const DateNDestionationScreen = props => {
         searchKeywordHandler('');
         searchResultsHandler([]);
         isShowingResultsHandler(false);
-    }
+    };
 
     const nextButtonHandler = () => {
-        if (searchKeyword != '' && startDate != null && endDate != null)
-            props.navigation.navigate('Categories')
+        if (searchKeyword != '' && searchKeyword1 != '' && startDate != null && endDate != null)
+            props.navigation.navigate('Categories', { startPoint: startPoint, endPoint: endPoint, startDate: startDate, endDate: endDate })
         else
             Alert.alert(
                 'Did you fill all fields ?',
                 'One of the fields is empty\nplease fill them up',
                 [{ text: 'OK', style: 'destructive' }]);
-    }
+    };
 
     const searchLocation = async (text) => { // Google places API call
         axios
             .request({
                 method: 'post',
-                url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchKeyword}&key=${GOOGLE_PLACES_API_KEY}`,
+                url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${text}&key=${GOOGLE_PLACES_API_KEY}`,
             })
             .then((response) => {
                 console.log(response)
@@ -130,61 +142,88 @@ const DateNDestionationScreen = props => {
             });
     };
 
+    const pointHandler = (id) => {
+        if (isFirstSearchBar)
+            setStartPoint(id)
+        else
+            setEndPoint(id);
+    }
+
     return (
         <KeyboardAvoidingView style={styles.screen} behavior="height">
-            <View style={styles.secondScreen}>
-                <Card style={styles.card}>
-                    <View style={styles.autocompleteContainer}>
-                        <SearchBar
-                            containerStyle={styles.searchBar}
-                            inputContainerStyle={styles.searchBarInput}
-                            placeholder="Enter Your Destination"
-                            placeholderTextColor='grey'
-                            onChangeText={searchKeywordHandler}
-                            onClear={resetDestinationInputValues}
-                            value={searchKeyword}
-                            round={true}
-                            lightTheme={true}
-                            onFocus={() => { }} />
+            <ImageBackground source={DND} style={styles.image}>
+                <View style={styles.secondScreen}>
+                    <Card style={styles.card}>
+                        <View style={styles.autocompleteContainer}>
+                            <SearchBar
+                                containerStyle={styles.searchBar1}
+                                inputContainerStyle={styles.searchBarInput}
+                                placeholder="Start From"
+                                placeholderTextColor='grey'
+                                onChangeText={searchKeywordHandler}
+                                onClear={resetDestinationInputValues}
+                                value={searchKeyword}
+                                round={true}
+                                lightTheme={true}
+                                onFocus={() => { setFirstSearchBar(true) }} />
 
-                        {isShowingResults && (
-                            <FlatList
-                                data={searchResults}
-                                renderItem={({ item, index }) => {
-                                    return (
-                                        <TouchableOpacity
-                                            style={styles.resultItem}
-                                            onPress={() => {
-                                                searchKeywordHandler('');
-                                                setSearchKeyword(item.description);
-                                            }
-                                            }>
-                                            <Text>{item.description}</Text>
-                                        </TouchableOpacity>
-                                    );
-                                }}
-                                keyExtractor={(item) => item.id}
-                                style={styles.searchResultsContainer}
-                            />
-                        )}
-                    </View>
-                    {!isShowingResults &&
-                        <Card style={styles.innerCard}>
-                            <View style={styles.datesInput}>
-                                <Text >{startDateText}</Text>
-                                <Text>{endDateText}</Text>
-                                <View style={styles.dateButton}><CustomButton onPress={showDatePicker} title={chooseDateButtonText}></CustomButton></View>
-                                <DateTimePickerModal
-                                    isVisible={isDatePickerVisible}
-                                    mode="date"
-                                    onConfirm={handleConfirm}
-                                    onCancel={hideDatePicker}
-                                    minimumDate={startDate} />
-                            </View>
-                        </Card>}
-                    <View style={styles.button}><CustomButton onPress={nextButtonHandler} title="Next"></CustomButton></View>
-                </Card>
-            </View>
+                            <SearchBar
+                                containerStyle={styles.searchBar2}
+                                inputContainerStyle={styles.searchBarInput}
+                                placeholder="End In"
+                                placeholderTextColor='grey'
+                                onChangeText={searchKeywordHandler}
+                                onClear={resetDestinationInputValues}
+                                value={searchKeyword1}
+                                round={true}
+                                lightTheme={true}
+                                onFocus={() => { setFirstSearchBar(false) }} />
+
+                            {isShowingResults && (
+                                <FlatList
+                                    data={searchResults}
+                                    renderItem={({ item, index }) => {
+                                        return (
+                                            <TouchableOpacity
+                                                id={item.place_id}
+                                                style={styles.resultItem}
+                                                onPress={() => {
+                                                    searchKeywordHandler('');
+                                                    if (isFirstSearchBar)
+                                                        setSearchKeyword(item.description);
+                                                    else
+                                                        setSearchKeyword1(item.description);
+                                                    pointHandler(item.place_id);
+                                                }
+                                                }>
+                                                <Text style={{ color: 'white' }}>{item.description}</Text>
+                                            </TouchableOpacity>
+                                        );
+                                    }}
+                                    keyExtractor={(item) => item.id}
+                                    style={styles.searchResultsContainer}
+                                />
+                            )}
+                        </View>
+                        {!isShowingResults &&
+                            <Card style={styles.innerCard}>
+                                <View style={styles.datesInput}>
+                                    <Text >{startDateText}</Text>
+                                    <Text>{endDateText}</Text>
+                                    <View style={styles.dateButton}><CustomButton onPress={showDatePicker} title={chooseDateButtonText}></CustomButton></View>
+                                    {/* <DateTimePickerModal
+                                        isVisible={isDatePickerVisible}
+                                        mode="date"
+                                        onConfirm={handleConfirm}
+                                        onCancel={hideDatePicker}
+                                        minimumDate={startDate} /> */}
+                                    
+                                </View>
+                            </Card>}
+                        <View style={styles.button}><CustomButton onPress={nextButtonHandler} title="Next"></CustomButton></View>
+                    </Card>
+                </View>
+            </ImageBackground>
         </KeyboardAvoidingView>
     );
 };
@@ -192,43 +231,56 @@ const DateNDestionationScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        padding: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
     },
-    searchBar: {
+    searchBar1: {
         width: '100%',
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         backfaceVisibility: 'hidden',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
-        marginTop: 10
+        marginTop: 10,
+    },
+    searchBar2: {
+        width: '100%',
+        backgroundColor: 'transparent',
+        backfaceVisibility: 'hidden',
+        borderBottomColor: 'transparent',
+        borderTopColor: 'transparent',
     },
     searchBarInput: {
         backgroundColor: Colors.drawer,
     },
     card: {
-        width: '100%',
+        width: '90%',
         height: '95%',
         alignItems: 'center',
         justifyContent: 'space-evenly',
         padding: 15,
+        marginStart: 20,
+        marginTop: 20,
+        backgroundColor: 'rgba(0,0,0,0)',
+        elevation: 0
     },
     innerCard: {
-        width: '100%',
-        height: '60%',
+        width: '90%',
+        height: '50%',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 15,
         marginBottom: 40,
+        backgroundColor: 'rgba(1000,1000,1000,0.6)',
+
     },
     button: {
         width: '100%',
-        height: 35
+        height: 35,
+        opacity: 0.9
     },
     dateButton: {
         width: '100%',
+        opacity: 0.9
     },
     secondScreen: {
         width: '100%',
@@ -248,18 +300,18 @@ const styles = StyleSheet.create({
     inputContainer: {
         width: '90%',
         height: 15
-
     },
     autocompleteContainer: {
         flex: 1,
-        width: '100%'
+        width: '100%',
     },
     searchResultsContainer: {
-        width: '95%',
+        width: '91.5%',
         height: 200,
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(0,0,0,0.2)',
         position: 'relative',
         top: 5,
+        marginStart: 13
     },
     resultItem: {
         width: '100%',
@@ -268,7 +320,15 @@ const styles = StyleSheet.create({
         borderBottomColor: Colors.drawer,
         borderBottomWidth: 1,
         paddingLeft: 15,
-        padding: 20
+        padding: 20,
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
     },
 });
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Alert, KeyboardAvoidingView} from 'react-native';
+import { View, Text, StyleSheet, Alert, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import Card from '../components/Card';
 import Input from '../components/Input'
 import { createNewUser, serverIp } from '../constantValues/Addresses';
 import CustomButton from '../components/CustomButton';
 import axios from 'axios';
 import Header from '../components/Header';
+import {SIGNIN} from '../constantValues/Images'
 
 const SignUpScreen = props => {
 
@@ -82,9 +83,10 @@ const SignUpScreen = props => {
                         Alert.alert(
                             'Sign Up',
                             'Sign Up completed succesfully',
-                            [{ text: 'OK',
-                             style: 'destructive',
-                              onPress: props.navigation.replace('MainScreen',{email: enteredEmail, pass: enteredPassword}) 
+                            [{
+                                text: 'OK',
+                                style: 'destructive',
+                                onPress: props.navigation.replace('MainScreen', { email: enteredEmail, pass: enteredPassword })
                             }]);
                     }
                 })
@@ -96,66 +98,68 @@ const SignUpScreen = props => {
 
     return (
         <KeyboardAvoidingView style={styles.screen}>
-             <Header title="Trip4U" ></Header>
-            <Card style={styles.card}>
-                <Text style={styles.textHeader}>Sign Up</Text>
-                <Input
-                    style={styles.inputContainer}
-                    autoCorrect={false}
-                    placeholder="First Name"
-                    keyboardType="default"
-                    placeholderTextColor='grey'
-                    value={enteredFirstName}
-                    onChangeText={firstNameInputHandler} 
-                    iconName='face'
-                    iconColor='grey'/>
-                <Input
-                    style={styles.inputContainer}
-                    autoCorrect={false}
-                    placeholder="Last Name"
-                    keyboardType="default"
-                    placeholderTextColor='grey'
-                    value={enteredLastName}
-                    onChangeText={lastNameInputHandler}
-                    iconName='face'
-                    iconColor='grey' />
-                <Input
-                    style={styles.inputContainer}
-                    autoCorrect={false}
-                    placeholder="Email Address"
-                    keyboardType="email-address"
-                    placeholderTextColor='grey'
-                    value={enteredEmail}
-                    onChangeText={emailInputHandler}
-                    iconName='email'
-                    iconColor='grey' />
-                <Input
-                    style={styles.inputContainer}
-                    autoCorrect={false}
-                    placeholder="Password"
-                    keyboardType="default"
-                    placeholderTextColor='grey'
-                    secureTextEntry={true}
-                    maxLength={12}
-                    value={enteredPassword}
-                    onChangeText={passwordInputHandler}
-                    iconName='lock'
-                    iconColor='grey' />
-                <Input
-                    style={styles.inputContainer}
-                    autoCorrect={false}
-                    placeholder="Re-Enter Password"
-                    keyboardType="default"
-                    placeholderTextColor='grey'
-                    secureTextEntry={true}
-                    maxLength={12}
-                    value={enteredReEnteredPassword}
-                    onChangeText={reEnterPasswordInputHandler}
-                    iconName='lock'
-                    iconColor='grey' />
+            <ImageBackground source={SIGNIN} style={styles.image}>
+                <Header title="Trip4U" ></Header>
+                <Card style={styles.card}>
+                    <Text style={styles.textHeader}>Sign Up</Text>
+                    <Input
+                        style={styles.inputContainer}
+                        autoCorrect={false}
+                        placeholder="First Name"
+                        keyboardType="default"
+                        placeholderTextColor='grey'
+                        value={enteredFirstName}
+                        onChangeText={firstNameInputHandler}
+                        iconName='face'
+                        iconColor='black' />
+                    <Input
+                        style={styles.inputContainer}
+                        autoCorrect={false}
+                        placeholder="Last Name"
+                        keyboardType="default"
+                        placeholderTextColor='grey'
+                        value={enteredLastName}
+                        onChangeText={lastNameInputHandler}
+                        iconName='face'
+                        iconColor='black' />
+                    <Input
+                        style={styles.inputContainer}
+                        autoCorrect={false}
+                        placeholder="Email Address"
+                        keyboardType="email-address"
+                        placeholderTextColor='grey'
+                        value={enteredEmail}
+                        onChangeText={emailInputHandler}
+                        iconName='email'
+                        iconColor='black' />
+                    <Input
+                        style={styles.inputContainer}
+                        autoCorrect={false}
+                        placeholder="Password"
+                        keyboardType="default"
+                        placeholderTextColor='grey'
+                        secureTextEntry={true}
+                        maxLength={12}
+                        value={enteredPassword}
+                        onChangeText={passwordInputHandler}
+                        iconName='lock'
+                        iconColor='black' />
+                    <Input
+                        style={styles.inputContainer}
+                        autoCorrect={false}
+                        placeholder="Re-Enter Password"
+                        keyboardType="default"
+                        placeholderTextColor='grey'
+                        secureTextEntry={true}
+                        maxLength={12}
+                        value={enteredReEnteredPassword}
+                        onChangeText={reEnterPasswordInputHandler}
+                        iconName='lock'
+                        iconColor='black' />
 
-            </Card>
-            <View style={styles.button}><CustomButton title="Sign Up" onPress={signUpHandler}></CustomButton></View>
+                </Card>
+                <View style={styles.button}><CustomButton title="Sign Up" onPress={signUpHandler}></CustomButton></View>
+            </ImageBackground>
         </KeyboardAvoidingView>
     );
 };
@@ -163,10 +167,8 @@ const SignUpScreen = props => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        padding: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white'
     },
     card: {
         width: '90%',
@@ -174,22 +176,32 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         marginTop: 100,
-        marginBottom: 20
-
+        marginBottom: 20,
+        opacity: 0.7,
     },
     inputContainer: {
         alignItems: 'center',
         marginVertical: 5,
+        borderBottomColor: 'black',
     },
     button: {
         marginTop: 15,
         width: '70%',
-        marginBottom: 15
+        marginBottom: 15,
+        opacity: 0.9
     },
     textHeader: {
         fontSize: 20,
         fontStyle: "italic",
-    }
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center",
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+      },
 });
 
 export default SignUpScreen;

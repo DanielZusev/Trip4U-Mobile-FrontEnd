@@ -1,2 +1,2 @@
 
-export const GOOGLE_PLACES_API_KEY = "";
+export const GOOGLE_PLACES_API_KEY = "AIzaSyA4JPHSaoEmR5rKqT1q2ok5GC-Zai7HAVo";
