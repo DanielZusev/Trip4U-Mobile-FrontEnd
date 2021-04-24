@@ -10,7 +10,8 @@ const ProfileScreen = props => {
                 onPressMyTrips={() => props.navigation.navigate('My Trips')}
                 onPressShareTrip={() => props.navigation.navigate('')}
                 onPressAccountSettings={() => props.navigation.navigate('')}
-                onPressClearHistory={() => props.navigation.navigate('')} />
+                onPressClearHistory={() => props.navigation.navigate('')} 
+                toggleDrawer={() => props.navigation.toggleDrawer()}/>
         </View>
     );
 };

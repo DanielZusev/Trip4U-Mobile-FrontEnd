@@ -7,7 +7,7 @@ import { login, serverIp } from '../constantValues/Addresses';
 import axios from 'axios';
 import CustomButton from '../components/CustomButton';
 import Header from '../components/Header';
-import {LOGIN} from '../constantValues/Images'
+import { LOGIN } from '../constantValues/Images'
 
 const LogInScreen = props => {
 
@@ -27,14 +27,14 @@ const LogInScreen = props => {
     };
 
 
-    const loginHandler = () => {
+    const loginHandler = async () => {
         if (enteredEmail === '' || enteredPassword === '') {
             Alert.alert(
                 'Invaild Input',
                 'One of the fields is empty\nplease fill them up',
                 [{ text: 'OK', style: 'destructive', onPress: resetValues }]);
         } else {
-            axios
+            await axios
                 .get(serverIp + login + enteredEmail + '/' + enteredPassword)
                 .then((res) => {
                     if (res.status === 200) {
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%',
-      },
+    },
 });
 
 export default LogInScreen;

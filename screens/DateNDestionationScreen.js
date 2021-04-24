@@ -8,7 +8,7 @@ import CustomDatePicker from '../components/CustomDatePicker';
 import { GOOGLE_PLACES_API_KEY } from '../constantValues/Credentials';
 import axios from 'axios';
 import { DND } from '../constantValues/Images'
-
+import DrawerButton from '../components/DrawerButton';
 
 
 const DateNDestionationScreen = props => {
@@ -66,7 +66,12 @@ const DateNDestionationScreen = props => {
 
     const nextButtonHandler = () => {
         if (searchKeyword != '' && searchKeyword1 != '' && startDate != '' && endDate != '' && isDatesOk)
-            props.navigation.navigate('Categories', { startPoint: startPoint, endPoint: endPoint, startDate: startDate, endDate: endDate })
+            props.navigation.navigate('Categories', {
+                startPoint: startPoint,
+                endPoint: endPoint,
+                startDate: startDate,
+                endDate: endDate,
+            })
         else
             Alert.alert(
                 'Did you fill all fields ?',
@@ -75,7 +80,7 @@ const DateNDestionationScreen = props => {
     };
 
     const searchLocation = async (text) => { // Google places API call
-        axios
+        await axios
             .request({
                 method: 'post',
                 url: `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${text}&key=${GOOGLE_PLACES_API_KEY}`,
@@ -108,9 +113,9 @@ const DateNDestionationScreen = props => {
     const checkEndDate = (value) => {
         const newValue = value.split('/');
         const splittedStartDate = startDate.split('/');
-    
+
         if (parseInt(newValue[0]) == parseInt(splittedStartDate[0])) {
-          
+
             if (parseInt(newValue[1]) >= parseInt(splittedStartDate[1])) {
                 setEndDate(value);
                 setDatesOk(true);
@@ -142,6 +147,7 @@ const DateNDestionationScreen = props => {
     return (
         <KeyboardAvoidingView style={styles.screen} behavior="height">
             <ImageBackground source={DND} style={styles.image}>
+                <DrawerButton style={{ marginTop: 60 }} OnPressButton={() => props.navigation.toggleDrawer()} />
                 <View style={styles.secondScreen}>
                     <Card style={styles.card}>
                         <View style={styles.autocompleteContainer}>
@@ -234,7 +240,7 @@ const styles = StyleSheet.create({
         backfaceVisibility: 'hidden',
         borderBottomColor: 'transparent',
         borderTopColor: 'transparent',
-        marginTop: 10,
+        // marginTop: 10,
     },
     searchBar2: {
         width: '100%',
@@ -248,12 +254,12 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '90%',
-        height: '95%',
+        height: '92%',
         alignItems: 'center',
         justifyContent: 'space-evenly',
         padding: 15,
         marginStart: 20,
-        marginTop: 20,
+        marginTop: 10,
         backgroundColor: 'rgba(0,0,0,0)',
         elevation: 0
     },
@@ -278,6 +284,7 @@ const styles = StyleSheet.create({
     },
     secondScreen: {
         width: '100%',
+        height: '95%'
     },
     datesInput: {
         flex: 1,

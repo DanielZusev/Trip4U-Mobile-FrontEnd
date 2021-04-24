@@ -8,3 +8,4 @@ export const DND = require('../images/dnd4.png');
 export const MAIN = require('../images/road.png');
 export const CATEGORY = require('../images/category1.png');
 export const BUILDTRIP = require('../images/dnd3.png');
+export const NO_PIC = require('../images/NoPic.png');

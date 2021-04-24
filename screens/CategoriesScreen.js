@@ -5,10 +5,11 @@ import Card from '../components/Card';
 import CustomButton from '../components/CustomButton';
 import { ButtonGroup, CheckBox } from 'react-native-elements';
 import Colors from '../constantValues/Colors';
+import DrawerButton from '../components/DrawerButton';
 
 
 const CategoriesScreen = props => {
-    const { startPoint, endPoint, startDate, endDate } = props.route.params;
+    const { startPoint, endPoint, startDate, endDate} = props.route.params;
 
     const dayLoadButtons = ['Calm', 'Moderate', 'Intense'];
     const categories = ['Hiking', 'Extreme', 'Culture', 'Shopping', 'Museums', 'Food', 'Relaxing', 'Casino']
@@ -60,7 +61,7 @@ const CategoriesScreen = props => {
                     startDate: startDate,
                     endDate: endDate,
                     dayLoad: dayLoadButtons[dayLoadIndex].toUpperCase(),
-                    categories: handleCategoryArr()
+                    categories: handleCategoryArr(),
                 })
         }
         else
@@ -88,6 +89,7 @@ const CategoriesScreen = props => {
     return (
         <View style={styles.screen}>
             <ImageBackground source={CATEGORY} style={styles.image}>
+                <DrawerButton OnPressButton={() => props.navigation.toggleDrawer()} />
                 <Card style={styles.card}>
                     <View style={styles.dayLoad}>
                         <Text style={styles.dayLoadHeader}>DayLoad</Text>
@@ -210,7 +212,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'white',
-        width: '100%'
+        width: '100%',
     },
     image: {
         flex: 1,
@@ -219,16 +221,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%',
-
     },
     card: {
         width: '90%',
-        height: '70%',
+        height: '75%',
         alignItems: 'center',
         justifyContent: 'space-evenly',
         padding: 15,
         backgroundColor: 'rgba(0,0,0,0.1)',
-        elevation: 0
+        elevation: 0,
+        marginTop: 20
     },
     button: {
         width: '80%',

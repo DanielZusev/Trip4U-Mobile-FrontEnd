@@ -6,7 +6,7 @@ import { createNewUser, serverIp } from '../constantValues/Addresses';
 import CustomButton from '../components/CustomButton';
 import axios from 'axios';
 import Header from '../components/Header';
-import {SIGNIN} from '../constantValues/Images'
+import { SIGNIN } from '../constantValues/Images'
 
 const SignUpScreen = props => {
 
@@ -49,7 +49,7 @@ const SignUpScreen = props => {
         setEnteredReEnteredPassword('');
     };
 
-    const signUpHandler = () => {
+    const signUpHandler = async () => {
         if (enteredFirstName === '' ||
             enteredLastName === '' ||
             enteredEmail === '' ||
@@ -76,7 +76,7 @@ const SignUpScreen = props => {
                 }
             };
 
-            axios
+            await axios
                 .post(serverIp + createNewUser, newUserElement)
                 .then((res) => {
                     if (res.status === 200) {
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%',
-      },
+    },
 });
 
 export default SignUpScreen;

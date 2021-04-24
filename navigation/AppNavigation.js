@@ -6,12 +6,11 @@ import ProfileScreen from '../screens/ProfileScreen';
 import MyTripsScreen from '../screens/MyTripsScreen';
 import LogNSignInNavigation from './LogNSignInNavigation';
 import BuildTripScreen from '../screens/BuildTripScreen';
-import CalendarTripScreen from '../screens/CanlendarTripScreen';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import DateNDestionationScreen from '../screens/DateNDestionationScreen';
-import MapTripScreen from '../screens/MapTripScreen';
 import TripScreen from '../screens/TripScreen';
 import Colors from '../constantValues/Colors';
+import data from '../data/data.json';
 
 const Drawer = createDrawerNavigator();
 
@@ -40,24 +39,37 @@ const AppNavigation = props => {
             <Drawer.Screen
                 name="Categories"
                 component={CategoriesScreen}
-                initialParams={{ startPoint: '', endPoint: '', startDate: '', endDate: '' }}
+                initialParams={{
+                    startPoint: '',
+                    endPoint: '',
+                    startDate: '',
+                    endDate: '',
+                }}
                 options={() => ({ swipeEnabled: true })} />
             <Drawer.Screen
                 name="Build Trip"
                 component={BuildTripScreen}
-                initialParams={{ startPoint: '', endPoint: '', startDate: '', endDate: '', dayLoad: '', categories: []}}
+                initialParams={{
+                    startPoint: '',
+                    endPoint: '',
+                    startDate: '',
+                    endDate: '',
+                    dayLoad: '',
+                    categories: [],
+                }}
                 options={() => ({ swipeEnabled: true })} />
             <Drawer.Screen
                 name="Trip"
                 component={TripScreen}
-                options={() => ({ swipeEnabled: true })} />
-            <Drawer.Screen
-                name="Map"
-                component={MapTripScreen}
-                options={() => ({ swipeEnabled: true })} />
-            <Drawer.Screen
-                name="Calendar"
-                component={CalendarTripScreen}
+                initialParams={{
+                    data: data,
+                    startLocation: '',
+                    endLocation: '',
+                    startDate: '',
+                    endDate: '',
+                    dayLoad: '',
+                    categories: [],
+                }}
                 options={() => ({ swipeEnabled: true })} />
         </Drawer.Navigator>
     );

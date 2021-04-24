@@ -1,0 +1,493 @@
+{
+    "trip": {
+        "tripId": "cace2043-de62-47c3-ac65-28e3b47f60a1",
+        "userId": "dan@gmail.com",
+        "startDate": "12/25/2020",
+        "endDate": "12/30/2020",
+        "categories": [
+            "art",
+            "hiking"
+        ],
+        "passengers": null,
+        "dayLoad": "INTENSE",
+        "startLocation": "53.471557,-2.247717",
+        "endLocation": "53.371833,-1.466437",
+        "route": {
+            "1": [
+                {
+                    "id": "feb76041-538d-4cac-974d-89f55340dd38",
+                    "name": "Imperial War Museum North",
+                    "location": {
+                        "lat": 53.469711646822404,
+                        "lng": -2.298809478035147
+                    },
+                    "intro": "Imperial War Museum North (sometimes referred to as IWM North) is a museum in the Metropolitan Borough of Trafford in Greater Manchester, England. One of five branches of the Imperial War Museum, it explores the impact of modern conflicts on people and society. It is the first branch of the Imperial War Museum to be located in the north of England. The museum occupies a site overlooking the Manchester Ship Canal on Trafford Wharf Road, Trafford Park, an area which during the Second World War was a key industrial centre and consequently heavily bombed during the Manchester Blitz in 1940. Just across the Trafford Wharf Road from the Museum is the bulk of the Rank Hovis Flour Mill, a survivor from a former industrial age and now rather out of keeping with the surrounding architecture. The area is now home to the Lowry cultural centre and the MediaCityUK development, which stand opposite the museum at Salford Quays.\nThe museum building was designed by architect Daniel Libeskind and opened in July 2002, receiving 470,000 visitors in its first year of opening. It was recognised with awards or prize nominations for its architecture and is a prime example of Deconstructivist architecture. The museum features a permanent exhibition of chronological and thematic displays, supported by hourly audiovisual presentations which are projected throughout the gallery space. The museum also hosts a programme of temporary exhibitions in a separate gallery. Since opening, the museum has operated a successful volunteer programme, which since January 2007 has been run in partnership with Manchester Museum. As part of a national museum, Imperial War Museum North is financed by the Department for Culture, Media and Sport and by self-generated income. Admission is free.",
+                    "snippet": "While the IWM in London contains tanks, guns, planes and uniforms, the North museum is focused on the social impacts of war, with less military hardware on display.",
+                    "label": "hiking",
+                    "score": 9.48209416655532,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Imperial_War_Museum_2008cropped.jpg",
+                    "properties": {
+                        "Address": "Trafford Wharf Rd, Stretford M17 1TZ",
+                        "Price": "Free",
+                        "Hours": "Daily 10:00-17:00",
+                        "Phone": "+44 161 836 4000",
+                        "Website": "http://www.iwm.org.uk/visits/iwm-north",
+                        "Tram": "Corn, TrfC (Imperial War Museum); , Asht, Eccl, MCUK (MediaCityUK)"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "93397cb2-57d2-4e3e-a31f-0d60ef46b409",
+                    "name": "Museum of Science and Industry",
+                    "location": {
+                        "lat": 53.4772588,
+                        "lng": -2.2547008
+                    },
+                    "intro": "The Science and Industry Museum (formerly known as the Museum of Science and Industry) in Manchester, England, is a large museum devoted to the development of science, technology and industry with emphasis on the city's achievements in these fields. The museum is part of the Science Museum Group, a non-departmental public body of the Department for Culture, Media and Sport, having merged with the National Science Museum in 2012.\nThere are extensive displays on the theme of transport (cars, aircraft, railway locomotives and rolling stock), power (water, electricity, steam and gas engines), Manchester's sewerage and sanitation, textiles, communications and computing.\nThe museum is an Anchor Point of the European Route of Industrial Heritage; and is situated on the site of the world's first passenger railway station – Manchester Liverpool Road – which opened as part of the Liverpool and Manchester Railway in September 1830. The railway station frontage and 1830 warehouse are both Grade I listed.",
+                    "snippet": "This is a great museum for those interested in technology and industrial heritage: sited at one end of the world's first passenger railway line.",
+                    "label": "hiking",
+                    "score": 9.67318877797675,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Science_and_Industry_Museum.jpg",
+                    "properties": {
+                        "Address": "Liverpool Road, M3 4FP",
+                        "Price": "Free, except for temporary exhibits (prices vary)",
+                        "Hours": "10AM-5PM daily",
+                        "Phone": "+44 161 832 2244",
+                        "Website": "http://scienceandindustrymuseum.org.uk/",
+                        "Tram": "Asht, Bury, Picc, Roch, Shaw, Vict (Deansgate-Castlefield)"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "4d5891aa-bdd1-4752-ab88-54920b39e60d",
+                    "name": "Albert Square",
+                    "location": {
+                        "lat": 53.479494088987686,
+                        "lng": -2.2451001459298916
+                    },
+                    "intro": "Albert Square is a public square in the centre of Manchester, England.\nIt is dominated by its largest building, the Grade I listed Manchester Town Hall, a Victorian Gothic building by Alfred Waterhouse. Other smaller buildings from the same period surround it, many of which are listed (the buildings on the north side are in Princess Street).\nThe square contains a number of monuments and statues, the largest of which is the Albert Memorial, a monument to Prince Albert, Prince consort of Queen Victoria. The square, named after the Prince, was laid out to provide a space for the memorial in 1863–67. Work on the town hall began in 1868 and was completed in 1877.",
+                    "snippet": "It is dominated by its largest building, the Grade I listed Manchester Town Hall, a Victorian Gothic building by Alfred Waterhouse.",
+                    "label": "hiking",
+                    "score": 9.05836161190366,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Manchester_town_hall.jpg",
+                    "properties": {
+                        "Bus": "15 (Portland Street/Dickinson Street)",
+                        "Tram": "Airp, Altr, Asht, Bury, EDid, Eccl, MCUK, Picc, Roch, Shaw, Vict (St. Peter's Square)"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "59677c49-089a-4a60-8d6a-698ada0659e6",
+                    "name": "Manchester Art Gallery",
+                    "location": {
+                        "lat": 53.47865618838625,
+                        "lng": -2.2413916605139237
+                    },
+                    "intro": "Manchester Art Gallery, formerly Manchester City Art Gallery, is a publicly owned art museum on Mosley Street in Manchester city centre. The main gallery premises were built for a learned society in 1823 and today its collection occupies three connected buildings, two of which were designed by Sir Charles Barry. Both Barry's buildings are listed. The building that links them was designed by Hopkins Architects following an architectural design competition managed by RIBA Competitions. It opened in 2002 following a major renovation and expansion project undertaken by the art gallery.\nManchester Art Gallery is free to enter and open seven days a week. It houses many works of local and international significance and has a collection of more than 25,000 objects. More than half a million people visited the museum in the period of a year, according to figures released in April 2014.",
+                    "snippet": "The principal wing is the work of Sir Charles Barry, also architect of the House of Parliament.",
+                    "label": "hiking",
+                    "score": 9.62142099192186,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Manchester_Art_Gallery_-_geograph.org.uk_-_1748756.jpg",
+                    "properties": {
+                        "Bus": "15 (Portland Street/Dickinson Street)",
+                        "Address": "Mosley Street",
+                        "Price": "Free",
+                        "Hours": "Tue-Sun 10AM-5PM and bank holidays except Christmas, New Year, and Good Friday",
+                        "Phone": "+44 161 235 8888",
+                        "Website": "http://manchesterartgallery.org/",
+                        "Fax": "+44 161 235-8899",
+                        "Tram": "Airp, Altr, Asht, Bury, EDid, Eccl, MCUK, Picc, Roch, Shaw, Vict (St. Peter's Square);  (Mosley Street)"
+                    },
+                    "visited": true
+                }
+            ],
+            "2": [
+                {
+                    "id": "1cbfb0d8-0cde-45e5-8167-5595ebc3b3c2",
+                    "name": "National Football Museum",
+                    "location": {
+                        "lat": 53.485836,
+                        "lng": -2.242176
+                    },
+                    "intro": "The National Football Museum is England's national museum of football. It is based in the Urbis building in Manchester city centre, and preserves, conserves and displays important collections of football memorabilia.\nThe museum was originally based in Deepdale, Preston, Lancashire, but moved to Manchester in 2012.",
+                    "snippet": "The National Football Museum is England's national museum of football.",
+                    "label": "hiking",
+                    "score": 9.5305661344989,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Finney_statue_in_Preston.jpg",
+                    "properties": {
+                        "Phone": "+44 161 605 8200",
+                        "Website": "http://www.nationalfootballmuseum.com",
+                        "Tram": "EDid, Roch, Shaw (Exchange Square); , Airp, Altr, Bury, Picc, Vict (Shudehill)",
+                        "Train": "Manchester Victoria"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "47abf3d7-0123-44a2-8984-560dda173a6b",
+                    "name": "Manchester Cathedral",
+                    "location": {
+                        "lat": 53.484799,
+                        "lng": -2.244664
+                    },
+                    "intro": "Manchester Cathedral, formally the Cathedral and Collegiate Church of St Mary, St Denys and St George, in Manchester, England, is the mother church of the Anglican Diocese of Manchester, seat of the Bishop of Manchester and the city's parish church. It is on Victoria Street in Manchester city centre.\nThe former parish church was rebuilt in the Perpendicular Gothic style in the years following the foundation of the collegiate body in 1421. Then at the end of the 15th century, James Stanley II (warden 1485–1506) was responsible for rebuilding the nave and collegiate choir with high clerestory windows; also commissioning the late-medieval wooden internal furnishings, including the pulpitum, choir stalls and the nave roof supported by angels with gilded instruments. The medieval church was extensively refaced, restored and extended in the Victorian period, and again following bomb damage in the 20th century. The collegiate church became the cathedral of the new Diocese of Manchester in 1847, and is one of fifteen Grade I listed buildings in Manchester.",
+                    "snippet": "Cathedral Yard (Visitor Centre at 10 Cateaton Street, around the corner).",
+                    "label": "hiking",
+                    "score": 8.78258354520781,
+                    "imageURL": "https://farm3.staticflickr.com/2200/2438805503_453be5cc0b_o.jpg",
+                    "properties": {
+                        "Address": "10 Cateaton Street",
+                        "Phone": "+44 161 833 2220",
+                        "Website": "http://www.manchestercathedral.org",
+                        "Fax": "+44 161 834-5397",
+                        "Tram": "EDid, Roch, Shaw (Exchange Square); , Airp, Altr, Bury, Picc, Vict (Shudehill)",
+                        "Train": "Manchester Victoria"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "62995538-fa08-4130-b2db-ba224984b3bf",
+                    "name": "Jade Spa",
+                    "location": {
+                        "lat": 53.48431249972274,
+                        "lng": -2.2518056396652186
+                    },
+                    "intro": "Jade Spa is a spa in Manchester near the Trinity Bridge.",
+                    "snippet": "Jade Spa is a spa in Manchester near the Trinity Bridge.",
+                    "label": "hidden gems",
+                    "score": 5.54280858533212,
+                    "imageURL": null,
+                    "properties": {
+                        "Email": "jadespa@mail.com",
+                        "Train": "Salford Central"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "c52c6744-c24b-46f8-beba-a571523bc707",
+                    "name": "Heaton Park",
+                    "location": {
+                        "lat": 53.5360764,
+                        "lng": -2.2528821
+                    },
+                    "intro": "Heaton Park is a municipal park in Manchester, England, covering an area of over 600acre. The park includes the grounds of a Grade I listed, neoclassical 18th century country house, Heaton Hall. The hall, remodelled by James Wyatt in 1772, is now only open to the public on an occasional basis as a museum and events venue.\nHeaton Park was sold to Manchester City Council in 1902 by the Earl of Wilton. It has one of the United Kingdom's few concrete towers, the Heaton Park BT Tower.\nThe park was renovated as part of a millennium project partnership between the Heritage Lottery Fund and Manchester City Council at a cost of over £10 million. It contains an 18-hole golf course, a boating lake, an animal farm, a pitch and putt course, a golf driving range, woodlands, ornamental gardens, an observatory, an adventure playground, a Papal monument and a volunteer-run tram system and museum, and is listed Grade II by Historic England. It has the only flat green bowling greens in Manchester, built for the 2002 Commonwealth Games.",
+                    "snippet": "Manchester's largest open space and one of the largest municipal parks in Europe.",
+                    "label": "hiking",
+                    "score": 8.61515001330164,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Heaton_Park.jpg",
+                    "properties": {
+                        "Directions": "Take Metrolink Bury line",
+                        "Website": "http://www.heatonpark.org.uk/",
+                        "Tram": " (White Gate)"
+                    },
+                    "visited": true
+                }
+            ],
+            "3": [
+                {
+                    "id": "9d828882-814e-4613-a0ec-1e669842dfa3",
+                    "name": "Clayton Hall",
+                    "location": {
+                        "lat": 53.483513,
+                        "lng": -2.17945
+                    },
+                    "intro": "Clayton Hall is a 15th-century manor house on Ashton New Road, in Clayton, Manchester, England. It is hidden behind trees in a small park. The hall is a Grade II* listed building, the mound on which it is built is a scheduled ancient monument, and a rare example of a medieval moated site . The hall is surrounded by a moat, making an island 66 m by 74 m. Alterations were made to the hall in the 16th and 17th centuries, and it was enlarged in the 18th century.\nThe building has Georgian and Tudor sections which form the remaining western wing of a once larger complex. The hall is reached across the moat over a listed stone bridge, thought to be dated around the late 17th Century.",
+                    "snippet": "It is hidden behind trees in a small park.",
+                    "label": "hidden gems",
+                    "score": 6.9475383857562,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Clayton_Hall_in_2005.jpg",
+                    "properties": {
+                        "Tram": "Asht, Eccl, MCUK (Clayton Hall)"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "07118f63-415f-4b99-8c99-4165779c7aa9",
+                    "name": "Housing Units",
+                    "location": {
+                        "lat": 53.51639408775678,
+                        "lng": -2.151659714682182
+                    },
+                    "intro": "Housing Units is a department store in Oldham.",
+                    "snippet": "Housing Units is a department store in Oldham.",
+                    "label": "hidden gems",
+                    "score": 5.48570021966873,
+                    "imageURL": null,
+                    "properties": {
+                        "Phone": "+44 161 681 5678"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "00850c23-9af0-4a9e-84dd-1eee9122fcbd",
+                    "name": "Pear New Mill",
+                    "location": {
+                        "lat": 53.4141995,
+                        "lng": -2.1335816
+                    },
+                    "intro": "Pear New Mill is a former Edwardian cotton spinning mill on the northern bank of the River Goyt in Bredbury, Stockport, Greater Manchester, England. It is a Grade II* listed building.\nPear Mill was one of the last cotton spinning mills to be built in England, commencing production in July 1913. The architects were A.H. Stott & Sons but due to difficulties in financing, it was completed by P.S. Stott. The building is typical of their work, with concrete floors and meticulous detailing. It was designed as a double mill, but the second mill was never built.\nThe power was provided by a Manhattan type steam engine by George Saxon & Co. Transmission was by rope drives. The mill had 137,312 mule spindles which remained until the 1950s when they were replaced by 33,636 ring spindles, the mill being electrified at the same time. It ceased operation as a textile mill in March 1978.",
+                    "snippet": "Pear New Mill is a former Edwardian cotton spinning mill on the northern bank of the River Goyt in Bredbury, Stockport, Greater Manchester, England.",
+                    "label": "hidden gems",
+                    "score": 6.03901197575856,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Pear_Mill%2C_Bredbury_-_geograph.org.uk_-_686556.jpg",
+                    "properties": {
+                        "Bus": "330 (Stockport Road West/Welkin Road)"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "877b37c0-b4c0-40fa-8e3b-267def2c4b9e",
+                    "name": "Levenshulme",
+                    "location": {
+                        "lat": 53.4443366,
+                        "lng": -2.1931527
+                    },
+                    "intro": "a neighbourhood stretching along Stockport Road, has a bustling, close-knit community feel and is popular with families. The new Lev Inspire centre, built inside a refurbished church, has become a hub of community activities. The area has also seen a resurgence of new, independent businesses opening up alongside established ones such as Levenshulme Antiques Village housed in the historic former police station building. The annual Levenshulme Festival brings hundreds of free music, art, food and sport events to the neighbourhood each year.",
+                    "snippet": "a neighbourhood stretching along Stockport Road, has a bustling, close-knit community feel and is popular with families.",
+                    "label": "hidden gems",
+                    "score": 6.10338434138271,
+                    "imageURL": null,
+                    "properties": {
+                        "Train": "Levenshulme"
+                    },
+                    "visited": true
+                }
+            ],
+            "4": [
+                {
+                    "id": "9cc31de4-a834-44c0-b588-fb1401ee620f",
+                    "name": "Wythenshawe Park",
+                    "location": {
+                        "lat": 53.40419997712683,
+                        "lng": -2.2797429865837153
+                    },
+                    "intro": "Wythenshawe Park is a Green Flag awarded park in Wythenshawe, Manchester, covering an area of 270 acres. Wythenshawe Hall lies at its centre. \nThe park features woodland, bedding, grassland and meadows, sporting facilities, Wythenshawe community farm and a horticulture centre.",
+                    "snippet": "Wythenshawe Park is a Green Flag awarded park in Wythenshawe, Manchester, covering an area of 270 acres.",
+                    "label": "hidden gems",
+                    "score": 6.9474115157357,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/6/67/Wythenshawe_Park_North_Lodge%2C_March_2016_031.jpg",
+                    "properties": {},
+                    "visited": true
+                },
+                {
+                    "id": "e8eda08f-d90f-4fee-bd3f-d195bf16ed2d",
+                    "name": "Wythenshawe Hall",
+                    "location": {
+                        "lat": 53.40482413123201,
+                        "lng": -2.27817441938327
+                    },
+                    "intro": "Wythenshawe Hall is a 16th-century medieval timber-framed historic house and former manor house in Wythenshawe, Manchester, England, five miles (8 km) south of Manchester city centre in Wythenshawe Park. Built for Robert Tatton, it was home to the Tatton family for almost 400 years. Its basic plan is a central hall with two projecting wings.\nIn the winter of 1643–44 the house was besieged by Parliamentarian forces during the English Civil War. Despite the stout defence put up by Robert Tatton and his fellow Royalists, the defenders were overwhelmed by the Roundheads' superior weaponry.\nRebuilding work was carried out at the end of the 18th century, and various additions made in the 19th century, including a walled garden, an ice house, glass houses and a tenant's hall. Wythenshawe Hall and its surrounding parkland were donated to Manchester Corporation in 1926, and in 1930 it was opened to the public as a museum.\nThe building was badly damaged in an arson attack in March 2016; repairs are expected to be completed by late 2019.",
+                    "snippet": "Wythenshawe Hall is a 16th-century medieval timber-framed historic house and former manor house in Wythenshawe, Manchester, England, five miles (8 km) south of Manchester city centre in Wythenshawe Park.",
+                    "label": "hidden gems",
+                    "score": 7.61874734284377,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Wyhtenshawe_Hall_in_2005.jpg",
+                    "properties": {
+                        "Phone": "+44 161 998 2331"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "79594b82-300b-4d9c-9f2b-934c0907ab71",
+                    "name": "Winnats Pass",
+                    "location": {
+                        "lat": 53.34013,
+                        "lng": -1.79871
+                    },
+                    "intro": "Winnats Pass (or Winnats, as shown on some Ordnance Survey maps) is a hill pass and limestone gorge in the Peak District of Derbyshire, England. The name is a corruption of 'wind gates' due to the swirling winds through the pass. It lies west of the village of Castleton, in the National Trust's High Peak Estate and the High Peak borough of Derbyshire. The road winds through a cleft, surrounded by high limestone ridges. At the foot of the pass is the entrance to Speedwell Cavern, a karst cave accessed through a flooded lead mine, and which is a popular tourist attraction.\nA local legend is that the pass is haunted by a young couple Alan and Clara who eloped in 1758, only to be robbed and murdered by miners as they headed through Winnats Pass, on their way to Peak Forest Chapel. The miners hid their bodies in a mine shaft where they were discovered 10 years later.\nIn the 1930s Winnats Pass was the location used for annual access relays in support of greater access to the moorlands or the Peak District, around the time of the Mass Trespass of Kinder Scout. At their peak these were attended by up to 10,000 people.\n \nThe permanent closure of the main A625 road at Mam Tor in 1979 due to subsidence has resulted in Winnats Pass being heavily used by road traffic. However, the narrowness of the road and its maximum gradient of over 28% (1 in ) has caused it to be closed to buses, coaches and vehicles over 7.5 tonnes in weight. The road regularly features in the Tour of the Peak cycle race each autumn.",
+                    "snippet": "Impressive limestone gorge above Speedwell Cavern, with high crags and caves; a narrow road leads up it.",
+                    "label": "hiking",
+                    "score": 9.12886308419179,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/4/45/WinnatsPass.jpg",
+                    "properties": {
+                        "Price": "Free",
+                        "Directions": "1 mile west of village; follow signs towards Caverns and Chapel-en-le-Frith",
+                        "Website": "http://showcaves.com"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "5769aa4f-d57f-45c2-803e-be062b812bc6",
+                    "name": "Peak Cavern",
+                    "location": {
+                        "lat": 53.3401352,
+                        "lng": -1.7784394
+                    },
+                    "intro": "The Peak Cavern, also known as the Devil's Arse, is one of the four show caves in Castleton, Derbyshire, England. Peakshole Water flows through and out of the cave, which has the largest cave entrance in Britain.",
+                    "snippet": "The nearest cavern to the village centre; the huge entrance (the largest in the British Isles) is set in a spectacular gorge below Peveril Castle and can be approached along a public footpath even if you don't pay to enter the cave.",
+                    "label": "hiking",
+                    "score": 8.858069870055,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Peak_Cavern_2015_05.jpg",
+                    "properties": {
+                        "Price": "£8.75 (adult), £6.75 (child), discounted joint tickets available with Speedwell Cavern",
+                        "Phone": "+44 1433 620285",
+                        "Directions": "widely signposted from village",
+                        "Website": "http://www.wondersofthepeak.org.uk"
+                    },
+                    "visited": true
+                }
+            ],
+            "5": [
+                {
+                    "id": "3f6bd7b8-dfb9-495e-9af2-a3997628783d",
+                    "name": "Treak Cliff Cavern",
+                    "location": {
+                        "lat": 53.3450642,
+                        "lng": -1.7971699
+                    },
+                    "intro": "Treak Cliff Cavern is a show cave near Castleton in Derbyshire, England. It is part of the Castleton Site of Special Scientific Interest and one of only two sites where the ornamental mineral Blue John is still excavated (the other is the nearby Blue John Cavern). As part of an agreement with English Nature, the Blue John that can be seen in the show cave is not mined but it is extracted in small quantities from other areas of the cave and made into saleable items like bowls, jewellery and ornaments.\nThe cave comprises two sections, the Old Series, discovered by lead miners in the 18th century, and the New Series, discovered during blasting in the 1920s. Only the Old Series contains Blue John, but the New Series is well decorated with flowstone, stalagmites and stalactites. Three human skeletons and flint implements from the Neolithic era were found in a small cave nearby in 1921.",
+                    "snippet": "More Blue John mining exhibits, craft shop.",
+                    "label": "hiking",
+                    "score": 8.5495871156534,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/8/84/Treak_Cliff_Cavern_-_interior_-_Andy_Mabbett_-_38.JPG",
+                    "properties": {
+                        "Price": "£8.75 (adult), £4.75 (child)",
+                        "Phone": "+44 1433 620571",
+                        "Directions": "1½ miles west of village; ignore Winnats Pass turn",
+                        "Website": "http://www.bluejohnstone.com"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "093392f3-a974-47a5-8b6f-5653aaa809d2",
+                    "name": "Odin Mine",
+                    "location": {
+                        "lat": 53.3478371,
+                        "lng": -1.8002649
+                    },
+                    "intro": "Odin Mine is a disused lead mine in the Peak District National Park, situated at grid reference . It lies on a site of 25 hectares near the village of Castleton, England. It is the oldest documented mine in Derbyshire and is thought to be one of the oldest lead mines in England. The mine is a Scheduled Ancient Monument and has biological and geological significance within the Castleton Site of Special Scientific Interest.",
+                    "snippet": "It is the oldest documented mine in Derbyshire and is thought to be one of the oldest lead mines in England.",
+                    "label": "hiking",
+                    "score": 8.59815908729539,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/9/95/Odin_Mine%2C_Castleton.JPG",
+                    "properties": {},
+                    "visited": true
+                },
+                {
+                    "id": "0840e45d-1c48-43a5-bc90-7113f5202a9d",
+                    "name": "Forge Dam Park",
+                    "location": {
+                        "lat": 53.361,
+                        "lng": -1.542
+                    },
+                    "intro": "Forge Dam Park is a park in Fulwood, in the city of Sheffield, South Yorkshire, England. Forge Dam Park is the fourth in a series of parks (when travelling west from Sheffield city centre) along the course of the Porter Brook. The 49acre park is on the site of the Old Mayhouse Farm and Forge Dam. It was acquired by the J G Graves Charitable Trust in 1938.",
+                    "snippet": "Forge Dam Park is a park in Fulwood, in the city of Sheffield, South Yorkshire, England.",
+                    "label": "hidden gems",
+                    "score": 6.59615686871509,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Forge_Dam_Park_-_geograph.org.uk_-_1510409.jpg",
+                    "properties": {},
+                    "visited": true
+                },
+                {
+                    "id": "076c0eab-af85-4eb5-a2a8-33114fdb0b24",
+                    "name": "National Emergency Services Museum",
+                    "location": {
+                        "lat": 53.38546804674887,
+                        "lng": -1.470988962415022
+                    },
+                    "intro": "The National Emergency Services Museum is a museum in Sheffield, England. Opened on 8 May 1984 as the Sheffield Fire and Police Museum, it was given its present name on 1 January 2014.",
+                    "snippet": "The world's largest collection of vehicles, uniforms and memorabilia from the police force, fire brigade and ambulance service.",
+                    "label": "hiking",
+                    "score": 8.97034169195722,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/1/18/FireMuseumS3_8PT.jpg",
+                    "properties": {
+                        "Bus": "135, 86 (West Bar WB1);  (Lambert Street/Scotland Street); 83, 83a, 88 (Queen Street/Paradise Street); 51 (Church Street/High Street); 1, 11, 11A, 181, 6, 75, 76, 97, 98 (High Street)",
+                        "Email": "info@emergencymuseum.org.uk",
+                        "Address": "West Bar, S3 8PT",
+                        "Price": "Adults: £8; Children 3–15 years old: £6; Children under 3 years old: free; Families: £22; Concessions: £7; 999 staff: free",
+                        "Hours": "W–Su, bank holidays 10AM–4PM. Also open M and Tu during school holidays",
+                        "Phone": "+44 114 249 1999",
+                        "Directions": "Supertram: Cathedral 500yards. Follow pedestrian signs for Law Courts",
+                        "Website": "http://www.emergencymuseum.org.uk",
+                        "Tram": "BLUE, PURP, TT, YELL (Cathedral)"
+                    },
+                    "visited": true
+                }
+            ],
+            "6": [
+                {
+                    "id": "f82ab86a-4744-4538-b82a-a3311a40e362",
+                    "name": "Curzon Cinema",
+                    "location": {
+                        "lat": 53.382217329151025,
+                        "lng": -1.4672483697516807
+                    },
+                    "intro": "Curzon Cinema is an excellent bar in Sheffield in an old area. Decent coffee, really great service and good food. Good value for money and a lovely atmosphere. Has a great experience.",
+                    "snippet": "A three-screen \"boutique cinema\" in a tastefully-restored Grade II-listed former bank, with several lounge areas and a popular rooftop bar.",
+                    "label": "hidden gems",
+                    "score": 5.51915858795734,
+                    "imageURL": null,
+                    "properties": {
+                        "Bus": "1, 11, 11A, 181, 6, 75, 76, 86, 97, 98 (High Street);  (Arundel Gate AG2); 5, X17 (Arundel Gate AG12); 20 (Arundel Gate AG9); 88 (Arundel Gate AG4); 51 (Church Street/High Street); 135, 208, 56, 65, 74A, A1, X74 (Flat Street/Fitzalan Square); 83, 83a, X1 (Arundel Gate AG6); 271 (Leopold Street/City Hall CH1)",
+                        "Address": "16 George Street, S1 2PF",
+                        "Hours": "Open every day noon to midnight",
+                        "Phone": "+44 330 500 1331",
+                        "Directions": "Supertram: Castle Square. The narrow George Street runs between the High Street and Norfolk Street",
+                        "Website": "http://www.curzoncinemas.com/sheffield/info",
+                        "Tram": "BLUE, YELL (Cathedral); PURP, TT (Castle Square)"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "8c2daba1-10fb-4836-9622-28ae10ed888d",
+                    "name": "Heeley City Farm",
+                    "location": {
+                        "lat": 53.363053,
+                        "lng": -1.4678331
+                    },
+                    "intro": "Heeley City Farm is a city farm in the district of Heeley, Sheffield, South Yorkshire, England. It is a community-based and led training, employment and youth enterprise.\nHeeley City Farm was founded in 1981 on land where the Sheffield South Relief road —commonly called the Heeley bypass, a scheme which blighted the lives of hundreds of local residents for 30 years— was to be built. Construction never started and the land was put to new use.\nHeeley City Farm includes a wind and sun powered mini-farm and a number of environmental social enterprises and attractions. The focus of its work is in Heeley but increasingly it operates throughout Sheffield and into the South Yorkshire region, including work at Wortley walled garden, Dore and Meersbrook.\nNow over 25 years old and winner of several national and international awards, Heeley City Farm provides environmental, health, food and farming education to around 5,000 school children and several thousands adult visitors each year. The South Yorkshire Energy Centre (SYEC), which opened in August 2006, demonstrates renewable energy and sustainable building materials and techniques and provides advice and courses for building professionals, individual householders and school parties. \nHeeley City Farm maintains a much needed green space in inner suburban Sheffield with recycling, healthy living facilities, a garden centre, cafe, and charity shop. Day care and training for up to 20 adults with learning difficulties is provided along with vocational training in horticulture for up to 100 unemployed adults, youth activities for up to 2,000 young people (including young people not attending school) and support for over 100 regular volunteers.\nHeeley City Farm describes itself as a community or social enterprise; it is committed to supporting those most in need in its community using enterprising methods. It runs training programmes (including language and Basic Skills support) and creates jobs (by developing mini enterprises). Emphasis is placed on long term unemployed adults, people with learning disabilities and those suffering disadvantage or discrimination in achieving skills and employment and young people.\nIncome comes mostly from social enterprise activity including public sector service contracts, enterprise sales and consultancy services. In 2005, less than 25% of income was described as funding but this included charitable funding and grants for specific projects or activities.\nThe Farm recently began a program named \"Digging our Roots\" that teaches young people about British archaeological heritage. Part of this project has featured the reconstruction of an Iron Age Roundhouse, which began on 31 October 2008 and is due to be completed in early 2011. The University of Sheffield's Archaeological Department and student-run Archaeological Society are involved in the project and has been used as part of an Experimental Archaeological study.",
+                    "snippet": "Inner city farm and environmental visitor centre with a range of rare breed farm animals, poultry, little critters, gardens and vegetable plots.",
+                    "label": "hidden gems",
+                    "score": 6.89043391998791,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Heeley_City_Farm_-_Gardens_14-04-06.jpg",
+                    "properties": {
+                        "Bus": "11A (Spencer Road/Anns Road); 20 (London Road/Glover Road); X17 (London Road/South/Gleadless Road); 1, 11, 51 (Heeley Bank Road/Spurr Street)",
+                        "Address": "Richards Road, S2 3DT",
+                        "Price": "Free",
+                        "Hours": "Daily 9AM–5PM",
+                        "Phone": "+44 114 258 0482",
+                        "Directions": "Bus: 18, 19, 56, 252 to Richards Road",
+                        "Website": "http://www.heeleyfarm.org.uk/",
+                        "Fax": "+44 114 255 1400"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "cedf4991-6852-419f-a2c8-049420430d3c",
+                    "name": "The Forge",
+                    "location": {
+                        "lat": 53.30150026671919,
+                        "lng": -1.4708853506140578
+                    },
+                    "intro": "The Forge is a shopping centre in Dronfield.",
+                    "snippet": "The Forge is a shopping centre in Dronfield.",
+                    "label": "hidden gems",
+                    "score": 5.43711653536963,
+                    "imageURL": null,
+                    "properties": {
+                        "Train": "Dronfield"
+                    },
+                    "visited": true
+                },
+                {
+                    "id": "e79b6b7c-bce1-44d7-842f-d5086b91caf1",
+                    "name": "Keppel's Column",
+                    "location": {
+                        "lat": 53.44792784480408,
+                        "lng": -1.415159325222234
+                    },
+                    "intro": "Keppel's Column is a 115ft tower Grade II* listed building between Wentworth and Kimberworth in Rotherham, South Yorkshire, England. Keppel's Column is one of several follies in and around Wentworth Woodhouse park; the others include Hoober Stand and Needle's Eye.",
+                    "snippet": "Keppel's Column is a 115ft tower Grade II* listed building between Wentworth and Kimberworth in Rotherham, South Yorkshire, England.",
+                    "label": "hidden gems",
+                    "score": 6.32313051033669,
+                    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Keppels_Column.jpg",
+                    "properties": {
+                        "Bus": "135, 44 (Upper Wortley Road/Hesley Grange)",
+                        "Website": "http://www.britishlistedbuildings.co.uk"
+                    },
+                    "visited": true
+                }
+            ]
+        },
+        "eventsPool": null,
+        "length": 6
+    }
+}

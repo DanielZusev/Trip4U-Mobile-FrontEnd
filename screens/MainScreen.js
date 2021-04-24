@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import Header from '../components/Header';
 import Card from '../components/Card';
 import CustomButton from '../components/CustomButton';
-import { MAIN } from '../constantValues/Images'
+import { MAIN } from '../constantValues/Images';
+import DrawerButton from '../components/DrawerButton';
 
 const MainScreen = props => {
 
@@ -12,6 +13,7 @@ const MainScreen = props => {
     return (
         <View style={styles.screen}>
             <ImageBackground source={MAIN} style={styles.image}>
+                <DrawerButton OnPressButton={() => props.navigation.toggleDrawer()}/>
                 <Header title="Trip4U" ></Header>
                 <Card style={styles.card}>
                     <Text style={styles.baseText}>Welcome Back {name}!</Text>

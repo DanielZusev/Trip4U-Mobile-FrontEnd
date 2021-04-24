@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import Colors from '../constantValues/Colors';
+import DrawerButton from '../components/DrawerButton';
 
 const Profile = props => {
 
     return (
         <View style={styles.screen}>
-            <View style={styles.header}></View>
+            <View style={styles.header}>
+                <DrawerButton OnPressButton={props.toggleDrawer} />
+            </View>
             <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
             <View style={styles.body}>
                 <View style={styles.bodyContent}>
