@@ -24,50 +24,48 @@ const TripScreen = props => {
         setTripButtonIndex(index);
     }
 
-    async function handleEditMode() {
-        const jData = JSON.stringify({
-            "type": "EDIT",
-            "moreDetails": {
-                "trip": {
-                    "startDate": "12/25/2020",
-                    "endDate": "12/30/2020",
-                    "categories": [
-                        "art",
-                        "hiking"
-                    ],
-                    "dayLoad": "INTENSE",
-                    "startLocation": "53.471557,-2.247717",
-                    "endLocation": "53.371833,-1.466437"
-                }
-            },
-            "invokeBy": email,
-            "elementId": tripId
-        });
-        const config = {
-            method: 'post',
-            url: serverIp + generateTrip,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: jData
-        };
+    // async function handleEditMode() {  //*****EDIT MODE FUNCTION
+    //     const jData = JSON.stringify({
+    //         "type": "EDIT",
+    //         "moreDetails": {
+    //             "trip": {
+    //                 "startDate": "12/25/2020",
+    //                 "endDate": "12/30/2020",
+    //                 "categories": [
+    //                     "art",
+    //                     "hiking"
+    //                 ],
+    //                 "dayLoad": "INTENSE",
+    //                 "startLocation": "53.471557,-2.247717",
+    //                 "endLocation": "53.371833,-1.466437"
+    //             }
+    //         },
+    //         "invokeBy": email,
+    //         "elementId": tripId
+    //     });
+    //     const config = {
+    //         method: 'post',
+    //         url: serverIp + generateTrip,
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         data: jData
+    //     };
 
-        await axios(config)
-            .then((res) => {
-                if (res.status === 200) {
-                    console.log('Hell');
-                    // props.navigation.navigate('Trip', { data: res.data });
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+    //     await axios(config)
+    //         .then((res) => {
+    //             if (res.status === 200) {
+    //                 // props.navigation.navigate('Trip', { data: res.data });
+    //             }
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }
  
+    // handleEditMode();
 
 
-
-    handleEditMode();
     return (
         <View style={styles.screen}>
             <ImageBackground source={CATEGORY} style={styles.image}>

@@ -86,7 +86,7 @@ const SignUpScreen = props => {
                             [{
                                 text: 'OK',
                                 style: 'destructive',
-                                onPress: props.navigation.replace('MainScreen', { email: enteredEmail, pass: enteredPassword })
+                                onPress: props.navigation.navigate('Main', { email: enteredEmail, pass: enteredPassword, name: enteredFirstName })
                             }]);
                     }
                 })

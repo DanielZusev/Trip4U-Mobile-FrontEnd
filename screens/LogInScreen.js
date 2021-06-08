@@ -39,7 +39,7 @@ const LogInScreen = props => {
                 .then((res) => {
                     if (res.status === 200) {
                         //console.log(res.data);
-                        props.navigation.replace('MainScreen', { email: enteredEmail, pass: enteredPassword, name: res.data.username.firstName });
+                        props.navigation.navigate('Main', { email: enteredEmail, pass: enteredPassword, name: res.data.username.firstName });
                     }
                 })
                 .catch((error) => {
@@ -81,7 +81,7 @@ const LogInScreen = props => {
 
                 </Card>
                 <View style={styles.button}><CustomButton onPress={loginHandler} title="Log In"></CustomButton></View>
-                <Text style={styles.signIn} onPress={() => props.navigation.navigate('SignUpScreen')}>Not Signed In? Press Me</Text>
+                <Text style={styles.signIn} onPress={() => props.navigation.navigate('Sign Up')}>Not Signed In? Press Me</Text>
             </ImageBackground>
         </KeyboardAvoidingView>
     );

@@ -13,7 +13,7 @@ const LogNSignInNavigation = props => {
 
     return (
         <Stack.Navigator initialRouteName="LogInScreen">
-            <Stack.Screen name="LogInScreen" component={LogInScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="LogInScreen" component={LogInScreen} options={{ headerShown: false }}  />
             <Stack.Screen name="SignUpScreen" component={SignInScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }} />
         </Stack.Navigator>

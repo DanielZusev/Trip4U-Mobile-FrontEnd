@@ -6,21 +6,14 @@ import CustomButton from '../components/CustomButton';
 import Header from '../components/Header';
 import axios from 'axios';
 import { generateTrip, serverIp } from '../constantValues/Addresses';
-import { GOOGLE_PLACES_API_KEY } from '../constantValues/Credentials';
+
 
 const BuildTripScreen = props => {
 
-    const { startPoint, endPoint, startDate, endDate, dayLoad, categories} = props.route.params;
-
-    const [startLocation, setStartLocation] = useState('');
-    const [endLocation, setEndLocation] = useState('');
+    const {email, startPoint, endPoint, startDate, endDate, dayLoad, categories} = props.route.params;
 
     // console.log("SP:" + startPoint + " EP:" + endPoint + " SD:" + startDate + " ED:" + endDate + " DL:" + dayLoad + " C:" + categories)
-    if (startPoint !== null && endPoint !== null) {
-        handelPlaces(startPoint, true);
-        handelPlaces(endPoint, false);
-    }
-
+    
   async function handelBuildForMe() {
 
         const data = JSON.stringify({
@@ -31,10 +24,11 @@ const BuildTripScreen = props => {
                     "endDate": endDate,
                     "categories": categories,
                     "dayLoad": dayLoad,
-                    "startLocation": startLocation,
-                    "endLocation": endLocation
+                    "startLocation": startPoint,
+                    "endLocation": endPoint
                 }
-            }
+            },
+            "invokeBy": email
         });
 
         const config = {
@@ -51,38 +45,13 @@ const BuildTripScreen = props => {
                 if (res.status === 200) {
                     props.navigation.navigate('Trip', {
                         data: res.data,
-                        startLocation: startLocation,
-                        endLocation: endLocation,
+                        startLocation: startPoint,
+                        endLocation: endPoint,
                         startDate: startDate,
                         endDate: endDate,
                         dayLoad: dayLoad,
                         categories: categories,
                     });
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
-
-   async function handelPlaces(placeId, isStart) {
-        const config = {
-            method: 'get',
-            url: `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,geometry&key=${GOOGLE_PLACES_API_KEY}`,
-            headers: {}
-        };
-
-        await axios(config)
-            .then((res) => {
-                if (res.status === 200) {
-                    const lat = res.data.result.geometry.location.lat;
-                    const lng = res.data.result.geometry.location.lng;
-                    let location = lat + "," + lng;
-
-                    if (isStart)
-                        setStartLocation(location);
-                    else
-                        setEndLocation(location);
                 }
             })
             .catch((error) => {

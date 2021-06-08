@@ -21,7 +21,7 @@ const MainScreen = props => {
                     <Text>Planning Your Trip</Text>
                 </Card>
                 <View style={styles.button}>
-                    <CustomButton onPress={() => { props.navigation.navigate('Date N Des'), { email: email, pass: pass } }} title="Start"></CustomButton>
+                    <CustomButton onPress={() => { props.navigation.navigate('Date N Des', { email: email, pass: pass }) }} title="Start"></CustomButton>
                 </View>
             </ImageBackground>
         </View>

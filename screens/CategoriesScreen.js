@@ -6,13 +6,49 @@ import CustomButton from '../components/CustomButton';
 import { ButtonGroup, CheckBox } from 'react-native-elements';
 import Colors from '../constantValues/Colors';
 import DrawerButton from '../components/DrawerButton';
+import { GOOGLE_PLACES_API_KEY } from '../constantValues/Credentials';
+import axios from 'axios';
 
 
 const CategoriesScreen = props => {
-    const { startPoint, endPoint, startDate, endDate} = props.route.params;
+    const { startPoint, endPoint, startDate, endDate, email} = props.route.params;
 
     const dayLoadButtons = ['Calm', 'Moderate', 'Intense'];
     const categories = ['Hiking', 'Extreme', 'Culture', 'Shopping', 'Museums', 'Food', 'Relaxing', 'Casino']
+
+    const [startLocation, setStartLocation] = useState('');
+    const [endLocation, setEndLocation] = useState('');
+
+    // Get actual location from google places api
+    if (startPoint !== null && endPoint !== null) {
+        handelPlaces(startPoint, true);
+        handelPlaces(endPoint, false);
+    }
+
+    async function handelPlaces(placeId, isStart) {
+        const config = {
+            method: 'get',
+            url: `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,geometry&key=${GOOGLE_PLACES_API_KEY}`,
+            headers: {}
+        };
+
+        await axios(config)
+            .then((res) => {
+                if (res.status === 200) {
+                    const lat = res.data.result.geometry.location.lat;
+                    const lng = res.data.result.geometry.location.lng;
+                    let location = lat + "," + lng;
+
+                    if (isStart)
+                        setStartLocation(location);
+                    else
+                        setEndLocation(location);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
     const [dayLoadIndex, setDayLoadIndex] = useState(0);
     const [isChecked1, setIsChecked1] = useState(false);
@@ -56,8 +92,9 @@ const CategoriesScreen = props => {
         if (checked >= 2) {
             props.navigation.navigate('Build Trip',
                 {
-                    startPoint: startPoint,
-                    endPoint: endPoint,
+                    email: email,
+                    startPoint: startLocation,
+                    endPoint: endLocation,
                     startDate: startDate,
                     endDate: endDate,
                     dayLoad: dayLoadButtons[dayLoadIndex].toUpperCase(),
@@ -73,14 +110,14 @@ const CategoriesScreen = props => {
 
     const handleCategoryArr = () => {
         let selectedCategories = [];
-        isChecked1 ? selectedCategories.push(categories[0]) : null
-        isChecked2 ? selectedCategories.push(categories[1]) : null
-        isChecked3 ? selectedCategories.push(categories[2]) : null
-        isChecked4 ? selectedCategories.push(categories[3]) : null
-        isChecked5 ? selectedCategories.push(categories[4]) : null
-        isChecked6 ? selectedCategories.push(categories[5]) : null
-        isChecked7 ? selectedCategories.push(categories[6]) : null
-        isChecked8 ? selectedCategories.push(categories[7]) : null
+        isChecked1 ? selectedCategories.push(categories[0].toLowerCase()) : null
+        isChecked2 ? selectedCategories.push(categories[1].toLowerCase()) : null
+        isChecked3 ? selectedCategories.push(categories[2].toLowerCase()) : null
+        isChecked4 ? selectedCategories.push(categories[3].toLowerCase()) : null
+        isChecked5 ? selectedCategories.push(categories[4].toLowerCase()) : null
+        isChecked6 ? selectedCategories.push(categories[5].toLowerCase()) : null
+        isChecked7 ? selectedCategories.push(categories[6].toLowerCase()) : null
+        isChecked8 ? selectedCategories.push(categories[7].toLowerCase()) : null
 
         return selectedCategories;
     }

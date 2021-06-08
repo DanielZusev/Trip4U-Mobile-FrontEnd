@@ -11,6 +11,8 @@ import DateNDestionationScreen from '../screens/DateNDestionationScreen';
 import TripScreen from '../screens/TripScreen';
 import Colors from '../constantValues/Colors';
 import data from '../data/data.json';
+import LogInScreen from '../screens/LogInScreen';
+import SignInScreen from '../screens/SignUpScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -20,22 +22,31 @@ const AppNavigation = props => {
             <Drawer.Screen
                 name="Main"
                 component={MainScreen}
-                initialParams={{ email: '', pass: '' }} />
+                initialParams={{ email: '', pass: '' }}
+                options={() => ({ swipeEnabled: false })} />
             <Drawer.Screen
                 name="Profile"
-                component={ProfileScreen} />
+                component={ProfileScreen}
+                options={() => ({ swipeEnabled: false })} />
             <Drawer.Screen
                 name="My Trips"
-                component={MyTripsScreen} />
-            <Drawer.Screen
-                name="Log Out"
-                component={LogNSignInNavigation}
-                options={() => ({ swipeEnabled: true })} />
+                component={MyTripsScreen}
+                options={() => ({
+                    swipeEnabled: false,
+                    drawerLabel: () => null,
+                    title: null,
+                    drawerIcon: () => null
+                })} />
             <Drawer.Screen
                 name="Date N Des"
                 component={DateNDestionationScreen}
                 initialParams={{ email: '', pass: '' }}
-                options={() => ({ swipeEnabled: true })} />
+                options={() => ({
+                    swipeEnabled: false,
+                    drawerLabel: () => null,
+                    title: null,
+                    drawerIcon: () => null
+                })} />
             <Drawer.Screen
                 name="Categories"
                 component={CategoriesScreen}
@@ -44,20 +55,33 @@ const AppNavigation = props => {
                     endPoint: '',
                     startDate: '',
                     endDate: '',
+                    email: '',
                 }}
-                options={() => ({ swipeEnabled: true })} />
+                options={() => ({
+                    swipeEnabled: false,
+                    drawerLabel: () => null,
+                    title: null,
+                    drawerIcon: () => null
+                })} />
             <Drawer.Screen
                 name="Build Trip"
                 component={BuildTripScreen}
                 initialParams={{
+                    email: '',
                     startPoint: '',
                     endPoint: '',
                     startDate: '',
                     endDate: '',
                     dayLoad: '',
                     categories: [],
+
                 }}
-                options={() => ({ swipeEnabled: true })} />
+                options={() => ({
+                    swipeEnabled: false,
+                    drawerLabel: () => null,
+                    title: null,
+                    drawerIcon: () => null
+                })} />
             <Drawer.Screen
                 name="Trip"
                 component={TripScreen}
@@ -70,7 +94,26 @@ const AppNavigation = props => {
                     dayLoad: '',
                     categories: [],
                 }}
-                options={() => ({ swipeEnabled: true })} />
+                options={() => ({
+                    swipeEnabled: false,
+                    drawerLabel: () => null,
+                    title: null,
+                    drawerIcon: () => null
+                })} />
+            <Drawer.Screen
+                name="Sign Up"
+                component={SignInScreen}
+                options={() => ({
+                    swipeEnabled: false,
+                    drawerLabel: () => null,
+                    title: null,
+                    drawerIcon: () => null
+                })} />
+            <Drawer.Screen
+                name="Log Out"
+                component={LogInScreen}
+                options={() => ({
+                    swipeEnabled: false })} />
         </Drawer.Navigator>
     );
 };

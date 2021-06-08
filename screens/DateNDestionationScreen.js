@@ -13,7 +13,7 @@ import DrawerButton from '../components/DrawerButton';
 
 const DateNDestionationScreen = props => {
 
-    const { email, pass } = props.route.params;
+    const { email, pass, name } = props.route.params;
 
     // DATE Picking Related Consts
     const [startDate, setStartDate] = useState('');
@@ -71,6 +71,7 @@ const DateNDestionationScreen = props => {
                 endPoint: endPoint,
                 startDate: startDate,
                 endDate: endDate,
+                email: email
             })
         else
             Alert.alert(
